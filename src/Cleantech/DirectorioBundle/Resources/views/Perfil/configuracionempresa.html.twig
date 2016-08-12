@@ -1,0 +1,342 @@
+{%extends 'layoutperfil.html.twig'%}
+     
+{% block body %}
+
+	{{ parent()}}
+	
+	
+	
+    <!-- Page Content -->
+    <div class="container">
+        <div class="page-content">
+    	<div class="row">
+            <div class="col-md-2">
+    		  	<div class="sidebar content-box" style="display: block;">
+    		  	    <div class="thumbnail">
+                        {%if app.user.path != false%}
+                        <img src="{{ asset('uploads/users/'~app.user.path) }}" >
+                        {% elseif app.user.path == false %}
+                         <img src="{{ asset('public/pictures/usernull.png') }}">
+                        {%endif%}
+                    </div>
+                    
+                    <!--<h3>{#{app.session.get('firstName')}#}</h3>--->
+                    <ul class="nav ">
+                        <!-- Main menu -->
+                        <li>
+                            <a  href="{{path('cleantech_directorio_perfil')}}">
+                                <i class="glyphicon glyphicon-home"></i> Inicio
+                             </a>
+                        </li>
+                        
+                        <li>
+                            <a href="{{ path('cleantech_perfil_edit') }}">
+                                <i class="glyphicon glyphicon-cog"></i> Perfil
+                                <span class="pull-right"></span>
+                             </a>
+                        </li>
+                        
+                        <li class="actives">
+                            <a href="{{ path('cleantech_perfil_empresa_edit') }}">
+                                <i class="glyphicon glyphicon-leaf"></i> Empresa
+                                <span class="pull-right"></span>
+                             </a>
+                        </li>
+                        
+                        
+                        <!--
+                        <li >
+                            <a data-toggle="collapse"  href="#collapse2">
+                                <i class="glyphicon glyphicon-envelope"></i> Mensajes
+                                <span class="caret pull-right"></span>
+                            </a>
+                             <!--- Sub menu--->
+                            <!--<ul id="collapse2" class="panel-collapse collapse">
+                                <li><a href="{#{path('cleantech_mensaje_mensajes')}#}"><i class="glyphicon glyphicon-list-alt"></i> Mensajes</a></li>
+                                <li><a href="{#{path('cleantech_mensaje_add')}#}"><i class="glyphicon glyphicon-plus"></i> Añadir Mensaje</a></li>
+                            </ul>
+                        </li>
+                        --->
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-md-10">
+    		  	<div class="content-box-large">
+    		  	    
+    		  	  <!-- Call to Action Well -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well text-center">
+                    <h4>Actualización de la Empresa</h4>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    		  	    
+    		  	     <!-- Content Row -->
+        
+           
+                
+                
+                <div class="tab-content">
+									    <div class="tab-pane active">
+									    	
+									    	
+									    	{%for flashMessage in app.session.flashbag.get('success') %}
+							                    <div class="alert alert-success" role="alert">
+							         				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>							
+							                        <div class="container"> {{flashMessage}}</div>
+							                    </div>
+						                	{% endfor %}
+											<div class="panel-body">
+									      		
+									      		{{ form_start(form, { 'attr' : {'novalidate' : 'novalidate', 'role' : 'form', 'class': 'form-horizontal'} }) }}
+											  		
+											  		<h4>Datos de la Empresa</h4>
+									    			<hr>
+											  		
+											  		<div class="form-group">
+											  			<div class="col-sm-3 control-label">
+														    {{form_label(form.nombre) }}
+														</div>
+														<div class="col-sm-8">
+														    {{form_widget(form.nombre, {'attr' : {'class' : 'form-control', 'placeholder' : 'usuario', 'READONLY' : 'READONLY'} }) }}
+														<span class="text-danger">{{ form_errors(form.nombre) }}</span>
+											    		</div>
+											  		</div>
+											  
+											  		<div class="form-group">
+											  			<div class="col-sm-3 control-label">
+											  				{{form_label(form.rfc) }}
+											  			</div>
+											    		<div class="col-sm-8">
+											    			{{form_widget(form.rfc, {'attr' : {'class' : 'form-control', 'placeholder' : 'RFC', 'READONLY' : 'READONLY'} }) }}
+											    		</div>
+											    		<span class="text-danger">{{ form_errors(form.rfc) }}</span>
+											  		</div>
+											  
+												  	<div class="form-group">
+												  		<div class="col-sm-3 control-label">
+												    		{{form_label(form.ramaTecnologica) }}
+												    	</div>
+												    	<div class="col-sm-8">
+												    		{{form_widget(form.ramaTecnologica, {'attr' : {'class' : 'form-control', 'placeholder' : 'nombre'} }) }}
+												    	</div>
+												    	<span class="text-danger">{{ form_errors(form.ramaTecnologica) }}</span>
+												  	</div>
+											  
+											  		<div class="form-group">
+											  			<div class="col-sm-3 control-label">
+											  				{{form_label(form.industria) }}
+											  			</div>
+											    		<div class="col-sm-8">
+											    			{{form_widget(form.industria, {'attr' : {'class' : 'form-control', 'placeholder' : 'apellidos'} }) }}
+											    		</div>
+											    		<span class="text-danger">{{ form_errors(form.industria) }}</span>
+											  		</div>
+											  
+											  		<div class="form-group">
+											  			<div class="col-sm-3 control-label">
+												    		{{form_label(form.servicio) }}
+												    	</div>
+												    	<div class="col-sm-8">
+												    		{{form_widget(form.servicio, {'attr' : {'class' : 'form-control', 'placeholder' : 'servicio' } }) }}
+												    	</div>
+												    	<span class="text-danger">{{ form_errors(form.servicio) }}</span>
+												  	</div>
+											  
+											  		<div class="form-group">
+											  			<div class="col-sm-3 control-label">
+											  				{{form_label(form.rSocial) }}
+											  			</div>
+											    		<div class="col-sm-8">
+											    			{{form_widget(form.rSocial, {'attr' : {'class' : 'form-control', 'placeholder' : 'Razón Social'} }) }}
+											    		</div>
+											    		<span class="text-danger">{{ form_errors(form.rSocial) }}</span>
+											  		</div>
+
+													<div class="form-group">
+											  			<div class="col-sm-3 control-label">
+												    		{{form_label(form.descripcion) }}
+												    	</div>
+												    	<div class="col-sm-8">
+												    		{{form_widget(form.descripcion, {'attr' : {'class' : 'form-control', 'placeholder' : 'descripcion' } }) }}
+												    	</div>
+												    	<span class="text-danger">{{ form_errors(form.descripcion) }}</span>
+												  	</div>
+												
+													<h4>Dirección</h4>
+													<hr>
+												
+													<div class="form-group">
+											  			<div class="col-sm-3 control-label">
+											  				{{form_label(form.calle) }}
+											  			</div>
+											    		<div class="col-sm-8">
+											    			{{form_widget(form.calle, {'attr' : {'class' : 'form-control', 'placeholder' : 'Calle'} }) }}
+											    		</div>
+											    		<span class="text-danger">{{ form_errors(form.calle) }}</span>
+											  		</div>
+											  		
+											  		<div class="form-group">
+											  			<div class="col-sm-3 control-label">
+											  				{{form_label(form.colonia) }}
+											  			</div>
+											    		<div class="col-sm-8">
+											    			{{form_widget(form.colonia, {'attr' : {'class' : 'form-control', 'placeholder' : 'Colonia'} }) }}
+											    		</div>
+											    		<span class="text-danger">{{ form_errors(form.colonia) }}</span>
+											  		</div>
+											  		
+											  		<div class="form-group">
+											  			<div class="col-sm-3 control-label">
+											  				{{form_label(form.cp) }}
+											  			</div>
+											    		<div class="col-sm-8">
+											    			{{form_widget(form.cp, {'attr' : {'class' : 'form-control', 'placeholder' : 'CP'} }) }}
+											    		</div>
+											    		<span class="text-danger">{{ form_errors(form.cp) }}</span>
+											  		</div>
+											  		
+											  		<div class="form-group">
+											  			<div class="col-sm-3 control-label">
+											  				{{form_label(form.municipio) }}
+											  			</div>
+											    		<div class="col-sm-8">
+											    			{{form_widget(form.municipio, {'attr' : {'class' : 'form-control', 'placeholder' : 'Municipio'} }) }}
+											    		</div>
+											    		<span class="text-danger">{{ form_errors(form.municipio) }}</span>
+											  		</div>
+
+											  		<div class="form-group">
+											  			<div class="col-sm-3 control-label">
+												    		{{form_label(form.estado) }}
+												    	</div>
+												    	<div class="col-sm-8">
+												    		{{form_widget(form.estado, {'attr' : {'class' : 'form-control', 'placeholder' : 'Estado' } }) }}
+												    	</div>
+												    	<span class="text-danger">{{ form_errors(form.estado) }}</span>
+												  	</div>
+												  	
+												  	<h4>Contacto</h4>
+													<hr>
+											
+												  	
+												  	<div class="form-group">
+											  			<div class="col-sm-3 control-label">
+												    		{{form_label(form.telefono) }}
+												    	</div>
+												    	<div class="col-sm-8">
+												    		{{form_widget(form.telefono, {'attr' : {'class' : 'form-control', 'placeholder' : 'telefono' } }) }}
+												    	</div>
+												    	<span class="text-danger">{{ form_errors(form.telefono) }}</span>
+												  	</div>
+											
+
+											  		<h4>Redes Sociales</h4>
+													<hr>
+												
+												
+											  		
+											  		<div class="form-group">
+											  			<div class="col-sm-3 control-label">
+												    		{{form_label(form.facebook) }}
+												    	</div>
+												    	<div class="col-sm-8">
+												    		{{form_widget(form.facebook, {'attr' : {'class' : 'form-control', 'placeholder' : 'url' } }) }}
+												    	</div>
+												    	<span class="text-danger">{{ form_errors(form.facebook) }}</span>
+												  	</div>
+												  	
+												  	<div class="form-group">
+											  			<div class="col-sm-3 control-label">
+												    		{{form_label(form.linkedin) }}
+												    	</div>
+												    	<div class="col-sm-8">
+												    		{{form_widget(form.linkedin, {'attr' : {'class' : 'form-control', 'placeholder' : 'url' } }) }}
+												    	</div>
+												    	<span class="text-danger">{{ form_errors(form.linkedin) }}</span>
+												  	</div>
+												  	
+												  	<div class="form-group">
+											  			<div class="col-sm-3 control-label">
+												    		{{form_label(form.twitter) }}
+												    	</div>
+												    	<div class="col-sm-8">
+												    		{{form_widget(form.twitter, {'attr' : {'class' : 'form-control', 'placeholder' : 'url' } }) }}
+												    	</div>
+												    	<span class="text-danger">{{ form_errors(form.twitter) }}</span>
+												  	</div>
+											  		
+											  		<h4>Logotipo</h4>
+													<hr>
+												
+											  		
+											  		<div class="form-group">
+														<div class="col-sm-3 control-label">
+															{{form_label(form.file) }}
+														</div>
+														<div class="col-sm-8">
+															{{form_widget(form.file, {'attr' : {'class' : 'file-input'} }) }}
+															
+														</div>
+														<img id="imgSalida" width="25%" height="25%" src="" />
+												  	</div>
+											  
+												  	
+											 
+											  		<div class="form-group" >
+											  			<div class="col-sm-offset-4 col-sm-10">
+											  				{{form_widget(form.save, {'label' : 'Guardar', 'attr' : {'class' : 'btn button-form'} }) }}
+											  			</div>
+											  		</div>
+												{{ form_end(form) }}
+											</div>
+									    </div>
+									</div>
+            
+        
+    				
+    				
+    		  	</div>
+            </div>
+            
+		</div>
+    </div>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+       
+        <!-- /.row -->
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+  
+
+{% endblock %}

@@ -1,0 +1,13 @@
+cleantech_mensaje_mensajes:
+    path:   /mensajes
+    defaults: { _controller: CleantechDirectorioBundle:Mensaje:index }
+
+cleantech_mensaje_add:
+    path:   /mensaje/add
+    defaults: { _controller: CleantechDirectorioBundle:Mensaje:add }
+    
+cleantech_mensaje_create:
+    path:   /mensaje/create
+    defaults: { _controller: CleantechDirectorioBundle:Mensaje:create }
+    methods: POST
+    

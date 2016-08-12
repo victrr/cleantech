@@ -1,0 +1,56 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        our_db_provider:
+            entity: 
+                class: CleantechDirectorioBundle:User
+                property: email
+                
+
+    firewalls:
+        default:
+            anonymous: ~
+            http_basic: ~
+            form_login:
+                login_path: /index
+                check_path: /login_check
+                
+                username_parameter: _email
+                password_parameter: _password
+                
+            logout:
+                path: /logout
+                target: /index
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            # activate different ways to authenticate
+
+            # http_basic: ~
+            # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: ~
+            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+
+#cifra la contraseña de usuarios    
+    encoders:
+        Cleantech\DirectorioBundle\Entity\User:
+            algorithm: bcrypt
+            cost: 12
+            
+            
+    access_control:
+        - { path: ^/index, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/$, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/perfil, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/empresa, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        - { path: ^/user, roles: [ROLE_ADMIN, ROLE_SUPER_ADMIN] }
+        
+        

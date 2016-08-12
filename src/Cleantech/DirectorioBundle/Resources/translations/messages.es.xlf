@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>Username</source>
+                <target>Usuario</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>First name</source>
+                <target>Nombres</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>Last name</source>
+                <target>Apellidos</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>Email</source>
+                <target>E-mail</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>Password</source>
+                <target>Contraseña</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>Role</source>
+                <target>Rol</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>Select a role</source>
+                <target>Selecciona un rol</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>Active</source>
+                <target>Activo</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>Nombre</source>
+                <target>Nombre de empresa</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>Rfc</source>
+                <target>RFC</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>User</source>
+                <target>Asignar usuario</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>File</source>
+                <target>Imagen</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>R social</source>
+                <target>Razón Social</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>Cp</source>
+                <target>C.P.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

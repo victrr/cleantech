@@ -1,0 +1,375 @@
+{%extends 'layoutpanel.html.twig'%}
+     
+{% block body %}
+	<div class="header">
+	     <div class="container">
+	         <div class="row">
+	        </div>
+	     </div>
+	</div>
+    {{ parent()}}
+
+    <div class="page-content">
+    	<div class="row">
+            <div class="col-md-2">
+    		  	<div class="sidebar content-box" style="display: block;">
+    		  	    <div class="thumbnail">
+                        <img src="{{asset('public/pictures/logo.png')}}" alt="..." class="img-rounded">
+                    </div>
+                    <!--<h3>{#{app.session.get('firstName')}#}</h3>--->
+                    <ul class="nav">
+                        <!-- Main menu -->
+                        <li>
+                            <a href="{{path('cleantech_directorio_perfil')}}">
+                                <i class="glyphicon glyphicon-home"></i> Inicio
+                                <span class="pull-right"></span>
+                             </a>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-user"></i> Usuarios
+                                <span class="caret pull-right"></span>
+                            </a>
+                             <!--- Sub menu--->
+                            <ul>
+                                <li><a href="{{path('cleantech_user_usuarios')}}"><i class="glyphicon glyphicon-list-alt"></i> Usuarios</a></li>
+                                <li><a href="{{path('cleantech_user_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Usuario</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="submenu actives">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-leaf"></i> Empresas
+                                <span class="caret pull-right"></span>
+                            </a>
+                             <!--- Sub menu--->
+                            <ul>
+                                <li><a href="{{path('cleantech_empresa_empresas')}}"><i class="glyphicon glyphicon-list-alt"></i> Empresas</a></li>
+                                <li><a href="{{path('cleantech_empresa_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Empresa</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+			<div class="col-md-10">
+		  		<div class="row">
+					<div class="col-md-12">
+						<div class="content-box-large">
+			  				<!--<div class="panel-heading">
+								<div class="panel-title "><h1><span class="label label-primary">Usuarios</span></h1></div>
+							</div>
+		  					--->
+		  					<div class="panel-body">
+		  						<div id="rootwizard">
+									<div class="navbar">
+										<div class="navbar-inner">
+											<ol class="breadcrumb">
+												<li><a href="{{path('cleantech_directorio_perfil')}}">Inicio</a></li>
+												<li><a href="{{path('cleantech_empresa_empresas')}}">Empresas</a></li>
+												<li class="active">{{ empresa.nombre}}</li>
+											</ol>										
+										 </div>
+									</div>
+								
+									<div class="tab-content">
+								    	<div class="tab-pane active">
+											<div class="content-box-large">
+												<div class="row">
+													<div class="col-xs-6 col-md-3">
+														<a href="#" class="thumbnail">
+															{% if empresa.path == false %}
+															<img src="{{asset('public/pictures/empresanull.png')}}" >
+															{% elseif empresa.path !=false %}
+															<img src="{{ asset('uploads/films/'~empresa.path) }}">
+															{%endif%}
+														</a>
+													</div>
+												</div>
+								  				<div class="panel-body">
+								  					<div class="col-md-7">
+											        	<dl>
+											        		<div class="row">
+											        			<div class="form-group">
+												        			<div class="col-sm-4 control-label">
+												            			<dt>Empresa: </dt>
+												            		</div>
+												       
+												                	<div class="col-sm-3">
+													                	<dd>
+													                		{{ empresa.nombre }}
+													                	</dd>
+												                	</div>
+											             		</div>
+											             	</div>
+											             	<br />
+											             	
+											             	<div class="row">
+											        			<div class="form-group">
+												        			<div class="col-sm-4 control-label">
+												            			<dt>RFC: </dt>
+												            		</div>
+												       
+												                	<div class="col-sm-3">
+													                	<dd>
+													                		{{ empresa.rfc }}
+													                	</dd>
+												                	</div>
+											             		</div>
+											             	</div>
+											             	<br />
+											             	
+											             	<div class="row">
+											             	<div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Rama Tecnologica</dt>
+												                </div>
+												                <div class="col-sm-3">
+													                <dd>
+													                	{{ empresa.ramaTecnologica }}
+													                </dd>
+												                </div>
+											                </div>
+											                </div>
+											                <br />
+											                
+											             	<div class="row">
+											             	<div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Industria</dt>
+												                </div>
+												                <div class="col-sm-3">
+													                <dd>
+													                	{{ empresa.industria }}
+													                </dd>
+												                </div>
+											             	</div>
+											             	</div>
+											             	<br />
+											                
+											                <div class="row">
+											                <div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Servicio</dt>
+												                </div>
+												                <div class="col-sm-3">
+													                <dd>
+													                	{{ empresa.servicio }}
+													                </dd>
+												                </div>
+											                </div>
+											                </div>
+											                <br />
+											                
+											                <div class="row">
+											                <div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Razón Social</dt>
+												                </div>
+												                <div class="col-sm-3">
+													                <dd>
+													                	{{ empresa.rSocial }}
+													                </dd>
+												                </div>
+											                </div>
+											                </div>
+											                <br />
+											                
+											                <div class="row">
+											                <div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Descripcion</dt>
+												                </div>
+												                <div class="col-md-6 container">
+													                <dd>
+													                	{{ empresa.descripcion }}
+													                </dd>
+												                </div>
+											                </div>
+											                </div>
+											                <br />
+											                
+											                <div class="row">
+											                <div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Calle</dt>
+												                </div>
+												                <div class="col-sm-3">
+													                <dd>
+													                	{{ empresa.calle }}
+													                </dd>
+												                </div>
+											                </div>
+											                </div>
+											                <br />
+											                
+											                <div class="row">
+											                <div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Colonia</dt>
+												                </div>
+												                <div class="col-sm-3">
+													                <dd>
+													                	{{ empresa.colonia }}
+													                </dd>
+												                </div>
+											                </div>
+											                </div>
+											                <br />
+											                
+											                <div class="row">
+											                <div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Código Postal</dt>
+												                </div>
+												                <div class="col-sm-3">
+													                <dd>
+													                	{{ empresa.cp }}
+													                </dd>
+												                </div>
+											                </div>
+											                </div>
+											                <br />
+											                
+											                <div class="row">
+											                <div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Municipio</dt>
+												                </div>
+												                <div class="col-sm-3">
+													                <dd>
+													                	{{ empresa.municipio }}
+													                </dd>
+												                </div>
+											                </div>
+											                </div>
+											                <br />
+											                
+											             	<div class="row">
+											             	<div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Estado</dt>
+												                </div>
+												                <div class="col-sm-3">
+													                <dd>
+													                	{{ empresa.estado }}
+													                </dd>
+												                </div>
+											                </div>
+											                </div>
+											                <br />
+											                
+											                <div class="row">
+											                <div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Telefono</dt>
+												                </div>
+												                <div class="col-sm-3">
+													                <dd>
+													                	{{ empresa.telefono }}
+													                </dd>
+												                </div>
+											                </div>
+											                </div>
+											                <br />
+											                
+											                <div class="row">
+											                <div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Facebook</dt>
+												                </div>
+												                <div class="col-sm-3">
+													                <dd>
+													                	{{ empresa.facebook }}
+													                </dd>
+												                </div>
+											                </div>
+											                </div>
+											                <br />
+											                
+											                <div class="row">
+											                <div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Linkedin</dt>
+												                </div>
+												                <div class="col-sm-3">
+													                <dd>
+													                	{{ empresa.linkedin }}
+													                </dd>
+												                </div>
+											                </div>
+											                </div>
+											                <br />
+											                
+											                <div class="row">
+											                <div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Twitter</dt>
+												                </div>
+												                <div class="col-sm-3">
+													                <dd>
+													                	{{ empresa.twitter }}
+													                </dd>
+												                </div>
+											                </div>
+											                </div>
+											                <br />
+											                
+											                <div class="row">
+											                <div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Created</dt>
+												             	</div>
+												                <div class="col-md-3 container">
+													                <dd>
+													                	{{ empresa.createdAt|date('d-m-Y H:i') }}
+													                </dd>
+												                </div>
+											                </div>
+											               	</div>
+											               	<br />
+											               	
+											               	<div class="row">
+											             	<div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Updated</dt>
+												        		</div>
+												                <div class="col-sm-3 container">
+													                <td>
+													                	{{ empresa.updatedAt|date('d-m-Y H:i') }}
+													                </dd>
+												                </div>
+											                </div>
+															</div>
+											        	</dl>
+													</div>
+													
+													<div class="col-md-3">
+														<h5><strong>Acciones</strong></h5>
+											        <!--<a href="" >Ver</a>-->
+											        	<a href="{{ path('cleantech_empresa_edit', {id: empresa.id}) }}" class="btn btn-lg btn-block btn-primary"><i class="glyphicon glyphicon-edit"></i> Editar</a>
+											           	<p>
+											            	{{include('CleantechDirectorioBundle:Empresa:forms/form.html.twig', {form: delete_form, message: 'Estas seguro?'} )}}
+											            </p>
+											    	</div>           	
+								  				</div>
+								  			</div>
+							  			</div>
+								    </div>
+								</div>	
+							</div>
+		  				</div>
+		  			</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <footer>
+        <div class="container">
+            <div class="copy text-center">
+               CLEANTECH CHALLENGUE <a href='#'>Website</a>
+            </div>
+        </div>
+    </footer>
+
+{% endblock %}

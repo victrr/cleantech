@@ -1,0 +1,118 @@
+{%extends 'layout.html.twig'%}
+     
+{% block body %}
+    <nav id="menu" class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i><span class="glyphicon glyphicon-align-justify" aria-hidden="true" style="color:white;"></span>
+                </button>
+  
+                <div class="col-md-offset-2" id="efecto divlogo">
+    				<img id="logo" src="{{asset('public/pictures/logo1.png')}}" class="img-responsive" alt="Responsive image">
+    			</div>
+            </div>
+            <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
+                  <ul class="nav navbar-nav">
+                    <li>
+                        <a class="navbar-brand page-scroll" href="index.html">
+                            <i class="fa fa-play-circle"></i>  <span class="light"></span> cleantech
+                        </a>
+                    </li>
+                </ul>
+            </div>
+       
+	
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{{path('cleantech_directorio_directorio')}}">Directorio</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#login">login</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{{path('cleantech_directorio_add')}}">prueba de imagen</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    
+	
+ <!---comienza banner-->
+	
+    <section id='banner'>
+        <div class="intro-banner">
+            <div class="container"> 
+                <div class="col-md-5 col-md-offset-5">
+                    <div id="">
+                        <h1 class="brand-heading">Cleantech</h1>
+                    </div>
+                    <p class="text-justify">GreenMomentum es una firma de inteligencia de mercado especializada en emprendimiento e innovación en cleantech para Latinoamérica. Sus objetivos son promover el desarrollo sustentable, mejorar la competitividad e impulsar la adopción de soluciones tecnológicas bajas en carbono.</p>
+                    <a href="#about" class="btn btn-circle page-scroll">
+                        <i class="fa fa-angle-double-down animated"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+	</section>
+
+
+	<section id='login'>
+        <div  class="intro-login">
+    		<div  class="container content-section ">
+    		    {% if error%}
+    		      <div class="alert alert-danger" role="alert">
+						                    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+						                        <div class="container">Usuario o contraseña incorrecta. Vuelva a intentar.</div>
+						                    </div>
+    		    {% endif %}
+                <div id="contenido-login" class="col-lg-4 col-lg-offset-4">
+                <h2>iniciar sesión</h2>
+                    <form class="" role="form"  method="post" action="{{path('cleantech_directorio_login_check')}}">
+                          <div class="form-group">
+                           
+                            <input type="email" name="_email" class="form-control input-sesion" value="{{ last_username }}" id="exampleInputEmail1" placeholder="email">
+                          </div>
+                          <div class="form-group">
+                          
+                            <input type="password" name="_password" class="form-control input-sesion" id="exampleInputPassword1" placeholder="contraseña">
+                            
+                            <input type="hidden" name="_target_path" value="cleantech_directorio_perfil">
+                          </div>                                     
+                          <button type="submit" class="btn btn-primary">iniciar sesión</button>
+                    </form>
+                </div>
+            </div>
+    	</div>	
+	</section>
+
+
+    <footer id="footer" class="site-footer fw-footer fw-footer-logo-retina" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 ">
+                <!---aqui falta contenido---->
+                
+                
+            </div>
+            <div class="col-xs-12 ">
+                <!---aqui falta contenido---->
+             <div class="col-xs-4 col-xs-offset-4"> © Copyright CleanTechChallengeMX</div>
+            </div>
+        </div>
+    </div>
+
+    </footer>
+{% endblock %}

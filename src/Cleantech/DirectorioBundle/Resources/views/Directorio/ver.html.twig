@@ -1,0 +1,17 @@
+{%extends 'layout.html.twig'%}
+     
+{% block body %}
+<div class="container">
+    <div class="row">
+    	<a href="{{path('cleantech_directorio_add')}}">añadir otra imagen</a>
+    	<br >
+        {% for imagenes in imagen%}
+        {{imagenes.name}} <img src="{{ asset('uploads/films/'~imagenes.path) }}">
+        <br>
+       
+       <div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" {{ asset('uploads/films/'~imagenes.path) }}></iframe>
+</div>
+        {%endfor%}
+</div>
+{% endblock %}

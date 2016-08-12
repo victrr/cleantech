@@ -1,0 +1,58 @@
+#este debe manejar la vista de usuarios
+cleantech_user_usuarios:
+    path:   /usuarios
+    defaults: { _controller: CleantechDirectorioBundle:User:index }
+    
+#vista y revision del formulario de add user
+cleantech_user_add:
+    path:   /add
+    defaults: { _controller: CleantechDirectorioBundle:User:add }
+
+#inserta los datos   
+cleantech_user_create:
+    path:   /create
+    defaults: { _controller: CleantechDirectorioBundle:User:create }
+    methods: POST
+    
+#regresa a la vista add si los datos no son ingresados
+cleantech_user_redirect_add:
+    path:   /create
+    defaults: 
+            _controller: CleantechDirectorioBundle:User:add 
+            path: /add
+            permanent: true
+
+#edita el dato selecionado vista y revision de datos
+cleantech_user_edit:
+    path:   /edit/{id}
+    defaults: { _controller: CleantechDirectorioBundle:User:edit }
+
+#actualiza los datos   
+cleantech_user_update:
+    path:   /update/{id}
+    defaults: { _controller: CleantechDirectorioBundle:User:update }
+    methods: [POST, PUT]
+    
+#regresa a la vista add si los datos no son ingresados
+cleantech_user_redirect_edit:
+    path:   /update/{id}
+    defaults: 
+            _controller: CleantechDirectorioBundle:User:edit 
+            path: /edit/{id}
+            permanent: true
+
+#edita el dato selecionado vista y revision de datos
+cleantech_user_view:
+    path:   /view/{id}
+    defaults: { _controller: CleantechDirectorioBundle:User:view }
+
+
+cleantech_user_delete:
+    path:   /delete/{id}
+    defaults: { _controller: CleantechDirectorioBundle:User:delete }
+    methods: [POST, DELETE]
+
+#cambia el estado del usuario
+cleantech_user_deletelogical:
+    path:   /deletelogical/{id}
+    defaults: { _controller: CleantechDirectorioBundle:User:deleteLogical }

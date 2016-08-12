@@ -1,0 +1,104 @@
+app_directorio_homepage:
+    path:     /home/
+    defaults: { _controller: CleantechDirectorioBundle:Login:index }
+#Este maneja la vista index#
+cleantech_directorio_index:
+    path:   /index
+    defaults: { _controller: CleantechDirectorioBundle:Home:index }
+    
+#Este sera para el buscador general
+cleantech_directorio_directorio:
+    path:   /directorio
+    defaults: { _controller: CleantechDirectorioBundle:Directorio:index }
+    
+cleantech_directorio_busqueda_general:
+    path:   /directorio/busqueda
+    defaults: { _controller: CleantechDirectorioBundle:Directorio:buscadorGeneral }
+
+
+
+
+cleantech_directorio_pruebadirectorio:
+    path:   /prueba/directorio
+    defaults: { _controller: CleantechDirectorioBundle:Picture:pruebaDirectorio }
+    
+    
+
+    
+#Modal Detalle
+cleantech_directorio_empresa_detalle:
+    path:   /directorio/empresa/{id}
+    defaults: { _controller: CleantechDirectorioBundle:Directorio:modalDetalle }    
+    
+    
+#inicia la busqueda por letra
+cleantech_directorio_buscarLetra:
+    path:   /Letra
+    defaults: { _controller: CleantechDirectorioBundle:Directorio:buscarLetra }
+    
+#inicia la busqueda Estado
+cleantech_directorio_buscarEstado:
+    path:   /estado
+    defaults: { _controller: CleantechDirectorioBundle:Directorio:buscarEstado }
+
+#este maneja el metodo post del login    
+cleantech_directorio_login:
+    path:   /login
+    defaults: { _controller: CleantechDirectorioBundle:Login:login }
+
+#este maneja el metodo post del login    
+cleantech_directorio_login_check:
+    path:   /login_check
+    defaults: { _controller: CleantechDirectorioBundle:Login:loginCheck }
+    
+#este finaliza sesion
+cleantech_directorio_logout:
+    path:   /logout
+   
+    
+#este debe manejar la viste perfil
+cleantech_directorio_perfil:
+    path:   /perfil
+    defaults: { _controller: CleantechDirectorioBundle:Login:index }
+    
+
+#prueba para imagenes pendiente XD
+cleantech_directorio_prueba:
+    path:   /prueba
+    defaults: { _controller: CleantechDirectorioBundle:Picture:index } 
+    
+
+cleantech_directorio_add:
+    path:   /prueba/add
+    defaults: { _controller: CleantechDirectorioBundle:Picture:add }
+
+
+cleantech_directorio_create:
+    path:   /prueba/create
+    defaults: { _controller: CleantechDirectorioBundle:Picture:create }
+    methods: POST
+
+    
+    
+
+    
+cleantech_directorio_upload:
+    path:   /upload
+    defaults: { _controller: CleantechDirectorioBundle:Picture:upload }    
+    
+###########################################
+cleantech_user_user:
+    resource:   "@CleantechDirectorioBundle/Resources/config/routes/user.yml"
+    prefix: /user
+
+cleantech_empresa_empresa:
+    resource:   "@CleantechDirectorioBundle/Resources/config/routes/empresa.yml"
+    prefix: /empresa
+    
+cleantech_perfil_perfil:
+    resource:   "@CleantechDirectorioBundle/Resources/config/routes/perfil.yml"
+    prefix: /perfil
+    
+cleantech_mensaje_mensaje:
+    resource:   "@CleantechDirectorioBundle/Resources/config/routes/mensaje.yml"
+    prefix: /mensaje

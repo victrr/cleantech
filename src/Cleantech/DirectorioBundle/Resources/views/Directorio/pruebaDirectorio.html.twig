@@ -1,0 +1,262 @@
+{%extends 'layout.html.twig'%}
+     
+{% block body %}
+    <!-----comienza directorio--->
+    <nav id="menu2" class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i><span class="glyphicon glyphicon-align-justify" aria-hidden="true" style="color:white;"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
+                  <ul class="nav navbar-nav">
+                    <li>
+                        <a class="navbar-brand" href="{{path('cleantech_directorio_index')}}">
+                            <i class="fa fa-play-circle"></i>  <span class="light"></span> cleantech
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="" href="{{path('cleantech_directorio_directorio')}}">Directorio</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    
+	
+    <section id='body'>
+        <div class="intro-body">
+            <div class="container">
+                
+                <div class="page-content">
+                    
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="#">Brand</a>
+                            </div>
+                    
+                      
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <form class="navbar-form navbar-left" role="search">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Submit</button>
+                                </form>
+                          
+                          
+                                <ul class="nav navbar-nav">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estado <span class="caret"></span></a>
+                                        <form class="dropdown-menu pre-scrollable" method="post" action="{{path('cleantech_directorio_buscarEstado')}}">
+                                            <li><button class="btn btn-block button-general btn-sm" type="button" name="as" value="as">Aguascalientes</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="bc" value="bc">Baja California</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="bs" value="bs">Baja California Sur</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="cc" value="cc">Campeche</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="cs" value="cs">Chiapas</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="ch" value="ch">Chihuahua</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="cl" value="cl">Coahuila</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="cm" value="cm">Colima</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="cdmx" value="cdmx">Ciudad de México</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="dg" value="dg">Durango</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="gt" value="gt">Guanajuato</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="gr" value="gr">Guerrero</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="hg" value="hg">Hidalgo</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="jc" value="jc">Jalisco</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="me" value="me">Estado de México</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="mn" value="mn">Michoacán</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="ms" value="ms">Morelos</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="nt" value="nt">Nayarit</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="nl" value="nl">Nuevo León</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="oc" value="oc">Oaxaca</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="pl" value="pl">Puebla</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" href="" type="submit" name="qt" value="qt">Querétaro</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="qr" value="qr">Quintana Roo</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="sp" value="sp">San Luis Potosí</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="sl" value="sl">Sinaloa</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="sr" value="sr">Sonora</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="tc" value="tc">Tabasco</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="ts" value="ts">Tamaulipas</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="tl" value="tl">Tlaxcala</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="vz" value="vz">Veracruz</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="yn" value="yn">Yucatán</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="zs" value="zs">Zacatecas</button></li>
+                                        </form>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="#">Separated link</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li>...</li>
+                            
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                    
+                    <div  class="row">
+                        <div class="container">
+                            <div class="container-fluid col-md-10 col-md-offset-1">
+                                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups"> 
+                                    <div class="btn-group" role="group" aria-label="First group"> 
+                                        <form method="post" action="{{path('cleantech_directorio_buscarLetra')}}">
+                                            <button type="submit" name="a" class="btn button-general" value="a">A</button>
+                                            <button type="submit" name="b" class="btn button-general" value="b">B</button>
+                                            <button type="submit" name="c" class="btn button-general" value="c">C</button>
+                                            <button type="submit" name="d" class="btn button-general" value="d">D</button> 
+                                            <button type="submit" name="e" class="btn button-general" value="e">E</button> 
+                                            <button type="submit" name="f" class="btn button-general" value="f">F</button>  
+                                            <button type="submit" name="g" class="btn button-general" value="g">G</button>  
+                                            <button type="submit" name="h" class="btn button-general" value="h">H</button>
+                                            <button type="submit" name="i" class="btn button-general" value="i">I</button>  
+                                            <button type="submit" name="j" class="btn button-general" value="j">J</button>  
+                                            <button type="submit" name="k" class="btn button-general" value="k">K</button>  
+                                            <button type="submit" name="l" class="btn button-general" value="l">L</button>  
+                                            <button type="submit" name="m" class="btn button-general" value="m">M</button>  
+                                            <button type="submit" name="n" class="btn button-general" value="n">N</button>  
+                                            <button type="submit" name="o" class="btn button-general" value="o">O</button>  
+                                            <button type="submit" name="p" class="btn button-general" value="p">P</button> 
+                                            <button type="submit" name="q" class="btn button-general" value="q">Q</button>  
+                                            <button type="submit" name="r" class="btn button-general" value="r">R</button>  
+                                            <button type="submit" name="s" class="btn button-general" value="s">S</button>  
+                                            <button type="submit" name="t" class="btn button-general" value="t">T</button>  
+                                            <button type="submit" name="u" class="btn button-general" value="u">U</button>  
+                                            <button type="submit" name="v" class="btn button-general" value="v">V</button>  
+                                            <button type="submit" name="w" class="btn button-general" value="w">W</button>  
+                                            <button type="submit" name="x" class="btn button-general" value="x">X</button> 
+                                            <button type="submit" name="y" class="btn button-general" value="y">Y</button>  
+                                            <button type="submit" name="z" class="btn button-general" value="z">Z</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                                
+                                   
+                    <hr>
+                    <div class="contenido-body">
+                        <div id="contenido-menu"  class="col-md-12 col-md-offset-1">
+                            {% if not pagination|length %}
+                                <div class="col-md-9 col-md-offset-1">
+                                    <h2>No se encontraron resultados</h2>
+                                </div>
+                            {% endif %}
+                            {% if pagination|length  %}
+                            {% for empresa in pagination%}
+                            <div class="col-md-9 col-md-offset-1">
+                                <div class="row">
+                                    <div id="contenedor-menu" class="col-md-12 panel-warning buscar">
+                                        <div class="media">
+                                            <div class="media-left media-middle">
+                                                <a href="#">
+                                                    <img class="media-object" src="{{ asset('uploads/films/'~empresa.path) }}" class="img-responsive" alt="Responsive image">
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading"><strong>{{ empresa.nombre}}</strong></h4>
+                                                <!--</-><p>{{empresa.descripcion}}</p>--->
+                                                <div class="col-md-4">
+                                                    <h5><span class="label label-primary">Telefóno:</span> {{empresa.telefono}}</h5>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <h5><span class="label label-default">Direccion:</span> {{empresa.direccion}}</h5>
+                                                    
+                                                </div>
+                                                <div class="col-md-4"> 
+                                                    <h5><span class="label label-success">Estado:</span> {{empresa.estado}}</h5>
+                                                </div>
+                                                <div class="col-md-2 col-md-offset-10">
+                                                    <button class="btn button-general btn-sm" data-toggle="modal" data-target="#{{empresa.id}}">ver <i class="glyphicon glyphicon-resize-full"></i> </button>
+                                                </div>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="{{empresa.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                <h4 class="modal-title" id="myModalLabel">{{ empresa.nombre}}</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>{{empresa.descripcion}}</p>
+                                                                
+                                                                <h4><span class="label label-primary">Rama Tecnológica: </span></h4>
+                                                                 <div class="panel-body">  <p>{{empresa.ramaTecnologica}}</p>
+                                                                
+                                                                <h4><span class="label label-primary">Industria: </span></h4><p>{{empresa.industria}}</p>
+                                                                <span class="glyphicon glyphicon-globe"></span><p>{{empresa.estado}}, {{empresa.direccion}}</p>
+                                                                <h5>Servico: </h5><p>{{empresa.servicio}}</p>
+                                                                <span class="glyphicon glyphicon-phone-alt"></span><p>{{empresa.telefono}}</p>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn button-general" data-dismiss="modal">Close</button>
+                                              
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!--media--->
+                                    </div>
+                                </div>
+                            <hr>
+                            </div><!--md-9-->
+                            {% endfor %}
+                            {% endif %}
+                        
+                        </div>
+                    </div><!--contenido-body-->
+                    <div class="navigation">
+                        {{knp_pagination_render(pagination)}}
+                    </div>
+                </div><!--page-content-->
+            </div><!--container-->
+       </div><!--intro-body-->
+	</section>
+	
+    <footer id="footer" class="site-footer fw-footer fw-footer-logo-retina" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ">
+                <!---aqui falta contenido---->
+                <ul>
+                    <li>contenido</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    </footer>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    	<meta charset="utf-8">
+    	<title>{% block title %}cleantech{% endblock %}</title>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	{% block stylesheets %}
+    	<link rel="stylesheet" type="text/css" href="{{ asset('public/css/bootstrap.min.css')}}">
+    	<link rel="stylesheet" href="{{asset('public/css/index_style.css')}}">
+    	{% endblock %}
+    </head>
+    <body>
+        {% block body %} {% endblock %}
+        {% block javascripts %}
+        <script type="text/javascript" src="{{asset('public/js/jquery.js')}}"></script>
+        <script type="text/javascript" src="{{asset('public/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('public/js/script.js')}}"></script>
+        <script type="text/javascript">
+        </script>	
+        {% endblock %}
+    
+    </body>
+</html>

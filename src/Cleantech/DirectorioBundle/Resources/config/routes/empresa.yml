@@ -1,0 +1,34 @@
+cleantech_empresa_empresas:
+    path:   /empresas
+    defaults: { _controller: CleantechDirectorioBundle:Empresa:index }
+    
+cleantech_empresa_add:
+    path:   /empresa/add
+    defaults: { _controller: CleantechDirectorioBundle:Empresa:add }
+
+
+cleantech_empresa_create:
+    path:   /empresa/create
+    defaults: { _controller: CleantechDirectorioBundle:Empresa:create }
+    methods: POST
+
+
+cleantech_empresa_view:
+    path:   /empresa/view/{id}
+    defaults: { _controller: CleantechDirectorioBundle:Empresa:view }
+    
+
+cleantech_empresa_edit:
+    path:   /empresa/edit/{id}
+    defaults: { _controller: CleantechDirectorioBundle:Empresa:edit }
+    
+cleantech_empresa_update:
+    path:   /empresa/update/{id}
+    defaults: { _controller: CleantechDirectorioBundle:Empresa:update }
+    methods: [POST, PUT]
+    
+    
+cleantech_empresa_delete:
+    path:   /empresa/delete/{id}
+    defaults: { _controller: CleantechDirectorioBundle:Empresa:delete }
+    methods: [POST, DELETE]

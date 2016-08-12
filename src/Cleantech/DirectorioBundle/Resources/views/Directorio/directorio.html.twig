@@ -1,0 +1,315 @@
+{%extends 'layout.html.twig'%}
+     
+{% block body %}
+    <!-----comienza directorio--->
+    <nav id="menu2" class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i><span class="glyphicon glyphicon-align-justify" aria-hidden="true" style="color:white;"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
+                  <ul class="nav navbar-nav">
+                    <li>
+                        <a class="navbar-brand" href="{{path('cleantech_directorio_index')}}">
+                            <i class="fa fa-play-circle"></i>  <span class="light"></span> cleantech
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="" href="{{path('cleantech_directorio_directorio')}}">Directorio</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    
+	
+    <div id="body">
+    
+            <div class="container">
+                <div class="row">
+                    <div class="intro-body-1"></div>
+                </div>
+                    <div class="row">
+                    <nav class="navbar navbar-inverse" id="menu2" >
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                
+                            </div>
+                    
+                      
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                
+                        <form class="navbar-form navbar-left" role="search" method="post" action="{{path('cleantech_directorio_busqueda_general')}}">
+                            <div class="form-group">
+                                <input type="text"  name="buscar" class="form-control" placeholder="Buscar empresa">
+                            </div>
+                            <button type="submit" name="send" value="send" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                        </form>
+                                
+                          
+                          
+                                <ul class="nav navbar-nav">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estado <span class="caret"></span></a>
+                                        <form class="dropdown-menu pre-scrollable" method="post" action="{{path('cleantech_directorio_buscarEstado')}}">
+                                            <li><button class="btn btn-block button-general btn-sm" type="button" name="as" value="as">Aguascalientes</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="bc" value="bc">Baja California</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="bs" value="bs">Baja California Sur</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="cc" value="cc">Campeche</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="cs" value="cs">Chiapas</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="ch" value="ch">Chihuahua</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="cl" value="cl">Coahuila</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="cm" value="cm">Colima</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="cdmx" value="cdmx">Ciudad de México</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="dg" value="dg">Durango</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="gt" value="gt">Guanajuato</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="gr" value="gr">Guerrero</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="hg" value="hg">Hidalgo</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="jc" value="jc">Jalisco</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="me" value="me">Estado de México</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="mn" value="mn">Michoacán</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="ms" value="ms">Morelos</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="nt" value="nt">Nayarit</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="nl" value="nl">Nuevo León</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="oc" value="oc">Oaxaca</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="pl" value="pl">Puebla</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" href="" type="submit" name="qt" value="qt">Querétaro</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="qr" value="qr">Quintana Roo</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="sp" value="sp">San Luis Potosí</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="sl" value="sl">Sinaloa</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="sr" value="sr">Sonora</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="tc" value="tc">Tabasco</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="ts" value="ts">Tamaulipas</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="tl" value="tl">Tlaxcala</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="vz" value="vz">Veracruz</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="yn" value="yn">Yucatán</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="zs" value="zs">Zacatecas</button></li>
+                                        </form>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Servicios <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="#">Separated link</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li>...</li>
+                            
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                    </div>
+                   
+                    <div  class="row">
+                        <div class="container">
+                            <div class="container-fluid col-xs-10 col-xs-offset-1">
+                                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups"> 
+                                    <div class="btn-group" role="group" aria-label="First group"> 
+                                        <form method="post" action="{{path('cleantech_directorio_buscarLetra')}}">
+                                            <button type="submit" name="a" class="btn button-general" value="a">A</button>
+                                            <button type="submit" name="b" class="btn button-general" value="b">B</button>
+                                            <button type="submit" name="c" class="btn button-general" value="c">C</button>
+                                            <button type="submit" name="d" class="btn button-general" value="d">D</button> 
+                                            <button type="submit" name="e" class="btn button-general" value="e">E</button> 
+                                            <button type="submit" name="f" class="btn button-general" value="f">F</button>  
+                                            <button type="submit" name="g" class="btn button-general" value="g">G</button>  
+                                            <button type="submit" name="h" class="btn button-general" value="h">H</button>
+                                            <button type="submit" name="i" class="btn button-general" value="i">I</button>  
+                                            <button type="submit" name="j" class="btn button-general" value="j">J</button>  
+                                            <button type="submit" name="k" class="btn button-general" value="k">K</button>  
+                                            <button type="submit" name="l" class="btn button-general" value="l">L</button>  
+                                            <button type="submit" name="m" class="btn button-general" value="m">M</button>  
+                                            <button type="submit" name="n" class="btn button-general" value="n">N</button>  
+                                            <button type="submit" name="o" class="btn button-general" value="o">O</button>  
+                                            <button type="submit" name="p" class="btn button-general" value="p">P</button> 
+                                            <button type="submit" name="q" class="btn button-general" value="q">Q</button>  
+                                            <button type="submit" name="r" class="btn button-general" value="r">R</button>  
+                                            <button type="submit" name="s" class="btn button-general" value="s">S</button>  
+                                            <button type="submit" name="t" class="btn button-general" value="t">T</button>  
+                                            <button type="submit" name="u" class="btn button-general" value="u">U</button>  
+                                            <button type="submit" name="v" class="btn button-general" value="v">V</button>  
+                                            <button type="submit" name="w" class="btn button-general" value="w">W</button>  
+                                            <button type="submit" name="x" class="btn button-general" value="x">X</button> 
+                                            <button type="submit" name="y" class="btn button-general" value="y">Y</button>  
+                                            <button type="submit" name="z" class="btn button-general" value="z">Z</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                                
+                                   
+                    <hr>
+                    <div class="contenido-body">
+                        <div id="contenido-menu"  class="col-xs-12 col-xs-offset-1">
+                            {% if not pagination|length %}
+                                <div class="col-xs-8 col-xs-offset-3" style="color: white;">
+                                    <h2>No se encontraron resultados</h2>
+                                </div>
+                            {% endif %}
+                            {% if pagination|length  %}
+                            {% for empresa in pagination%}
+                            {% if empresa.descripcion != ('')%}
+                            <div class="col-xs-9 col-xs-offset-1">
+                                <div class="row">
+                                    <div id="contenedor-menu" class="col-lg-10 col-xs-offset-1">
+                                        <div class="media">
+                                            <div class="media-left media-middle">
+                                                <a href="#">
+                                                    {% if empresa.path == false %}
+    															<img class="media-object " src="{{asset('public/pictures/empresanull.png')}}"  class="img-responsive img-little" alt="Responsive image" style="width: 80px; height: 80px;">
+    															{% elseif empresa.path !=false %}
+    															<img class="media-object " src="{{ asset('uploads/films/'~empresa.path) }}"  class="img-responsive img-little" alt="Responsive image" style="width: 80px; height: 80px;">
+    															{%endif%} 
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                
+                                                <div class="col-xs-8">
+                                               
+                                                <h4 class="media-heading"><strong>{{ empresa.nombre}}</strong></h4>
+                                                <div id="truncar" >
+                                                {{empresa.descripcion}}
+                                                </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                <div class="col-xs-3">
+                                                    <h5><span class="label label-primary">Telefóno:</span></h5>
+                                                    <p>{{empresa.telefono}}</p>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <h5><span class="label label-default">Direccion:</span></h5> 
+                                                    <p>{{empresa.calle}}</p>
+                                                    
+                                                </div>
+                                                <div class="col-xs-3"> 
+                                                    <h5><span class="label label-success">Estado:</span></h5> 
+                                                    <p>{{empresa.estado}}</p>
+                                                </div>
+                                                </div>
+                                             
+                                                
+                                      <div class="col-xs-2 col-xs-offset-4">
+                                                    <button class="btn button-general btn-sm" data-toggle="modal" data-target="#{{empresa.id}}"><i class="glyphicon glyphicon-menu-down"></i> </button>
+                                                </div>
+                                                
+                                               
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="{{empresa.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content modal-font">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                <h4 class="modal-title text-center text-uppercase" id="myModalLabel">{{ empresa.nombre}}</h4>
+                                                            </div>
+                                                            <div class="modal-body text-center">
+                                                                
+                                                                <div class="col-xs-offset-5">
+                                                                {% if empresa.path == false %}
+    															<img class="media-object " src="{{asset('public/pictures/empresanull.png')}}"  class="img-responsive img-little" alt="Responsive image" style="width: 80px; height: 80px;">
+    															{% elseif empresa.path !=false %}
+    															<img class="media-object " src="{{ asset('uploads/films/'~empresa.path) }}"  class="img-responsive img-little" alt="Responsive image" style="width: 80px; height: 80px;">
+    															{%endif%}    
+                                                                
+                                                                
+                                                                
+                                                                </div>
+                                                                <div>
+                                                                    <h5 class="text-uppercase">descripción</h5>
+                                                                <p>{{empresa.descripcion}}</p>
+                                                                </div>
+                                                                
+                                                                
+                                                                <div class="panel-body">  
+                                                                <h5 class="text-uppercase">rama tecnológica</h5>
+                                                                <p>{{empresa.ramaTecnologica}}</p>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <h5 class="text-uppercase">industria</h5>
+                                                                    </span></h4><p>{{empresa.industria}}</p>
+                                                                
+                                                                </div>
+                                                                
+                                                                
+                                                                <div  class="panel-body">
+                                                                    <h5 class="text-uppercase">calle</h5>
+                                                                    <p>{{empresa.estado}}</p>
+                                                                    
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <h5 class="text-uppercase">industria</h5>
+                                                                <p>{{empresa.servicio}}</p>
+                                                                    
+                                                                </div>
+                                                                
+                                                                <div  class="panel-body">
+                                                                <h5 class="text-uppercase">contacto</h5>
+                                                                <p>{{empresa.telefono}}</p>
+                                                                </div>
+                                                                
+                                                                <a href="{{asset(empresa.twitter)}} ">twitter</a>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn button-general" data-dismiss="modal">Cerrar</button>
+                                              
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                               
+                                        </div><!--media--->
+                                    </div>
+                                </div>
+                            <hr>
+                            </div><!--xs-9-->
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                        
+                        </div>
+                    </div><!--contenido-body-->
+                    <div class="navigation">
+                        {{knp_pagination_render(pagination)}}
+                    </div>
+                
+            </div><!--container-->
+       <!--intro-body-->
+	</div>
+	
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit text-center">© Copyright CleanTechChallengeMX.</p>
+      </div>
+    </div>
+{% endblock %}

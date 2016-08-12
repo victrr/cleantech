@@ -1,0 +1,147 @@
+{%extends 'layoutpanel.html.twig'%}
+     
+{% block body %}
+	<div class="header">
+	     <div class="container">
+	         <div class="row">
+	        </div>
+	     </div>
+	</div>
+    {{ parent()}}
+
+    <div class="page-content">
+    	<div class="row">
+            <div class="col-md-2">
+    		  	<div class="sidebar content-box" style="display: block;">
+    		  	    <div class="thumbnail">
+                        <img src="{{asset('public/pictures/logo.png')}}" alt="..." class="img-rounded">
+                    </div>
+                    <!--<h3>{#{app.session.get('firstName')}#}</h3>--->
+                    <ul class="nav">
+                        <!-- Main menu -->
+                        <li>
+                            <a href="{{path('cleantech_directorio_perfil')}}">
+                                <i class="glyphicon glyphicon-home"></i> Inicio
+                                <span class="pull-right"></span>
+                             </a>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-user"></i> Usuarios
+                                <span class="caret pull-right"></span>
+                            </a>
+                             <!--- Sub menu--->
+                            <ul>
+                                <li><a href="{{path('cleantech_user_usuarios')}}"><i class="glyphicon glyphicon-list-alt"></i> Usuarios</a></li>
+                                <li><a href="{{path('cleantech_user_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Usuario</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-leaf"></i> Empresas
+                                <span class="caret pull-right"></span>
+                            </a>
+                             <!--- Sub menu--->
+                            <ul>
+                                <li><a href="{{path('cleantech_empresa_empresas')}}"><i class="glyphicon glyphicon-list-alt"></i> Empresas</a></li>
+                                <li><a href="{{path('cleantech_empresa_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Empresa</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-envelope"></i> Mensajes
+                                <span class="caret pull-right"></span>
+                            </a>
+                             <!--- Sub menu--->
+                            <ul>
+                                <li><a href="{{path('cleantech_mensaje_mensajes')}}"><i class="glyphicon glyphicon-list-alt"></i> Mensajes</a></li>
+                                <li><a href="{{path('cleantech_mensaje_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Mensaje</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+		  	
+		  	<div class="col-md-10">
+		  		<div class="row">
+					<div class="col-md-12">
+						<div class="content-box-large">
+			  				<!--<div class="panel-heading">
+								<div class="panel-title "><h1><span class="label label-primary">Usuarios</span></h1></div>
+							</div>
+		  					--->
+		  					<div class="panel-body">
+		  						<div id="rootwizard">
+									<div class="navbar">
+										<div class="navbar-inner">
+											<ol class="breadcrumb">
+												<li><a href="{{path('cleantech_directorio_perfil')}}">Inicio</a></li>
+												<li class="active">mensajes</li>
+											</ol>										
+										 </div>
+									</div>
+								
+									<div class="tab-content">
+								    	<div class="tab-pane active">
+											<div class="content-box-large">
+							  					<div class="panel-heading">
+													<div class="panel-title"><i class="glyphicon glyphicon-list-alt"></i> <strong> mensajes </strong></div>
+												</div>
+							  					<div class="panel-body">
+							  						<div class="table-responsive">
+							  							<table class="table">
+										              		<thead>
+										                		<tr>
+													                <th>Nombre</th>
+													                <th>Descripción</th>
+													                <th>Usuario</th>
+													                <th>Creado</th>
+													                <th>Actualizado</th>
+													                <th>Acciones</th>
+												                </tr>
+										              		</thead>
+										              		<tbody>
+											              	{% for mensaje in mensajes %}
+												                <tr>
+													                <td >{{ mensaje.nombre }}</td>
+													                <td>{{ mensaje.descripcion }}</td>
+													                <td>{{ mensaje.user.fullName }}</td>
+													                <td>{{ mensaje.createdAt|date('d-m-Y H:i') }}</td>
+													                <td>{{ mensaje.updatedAt|date('d-m-Y H:i') }}</td>
+													                <td>
+											                  		<!--<a href="" >Ver</a>-->
+											                  	
+										                  			</td>
+										                		</tr>
+										                	{% endfor %}
+										              		</tbody>
+										            	</table>
+							  						</div>
+							  						<div class="navigation">
+							                        	{{knp_pagination_render(mensajes)}}
+							                        </div>
+							  					</div>
+							  				</div>
+								    	</div>
+									</div>	
+								</div>
+		  					</div>
+		  				</div>
+					</div>
+				</div>
+		  	</div>
+		</div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="copy text-center">
+               CLEANTECH CHALLENGUE <a href='#'>Website</a>
+            </div>
+        </div>
+    </footer>
+
+{% endblock %}
+
