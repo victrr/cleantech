@@ -33,7 +33,7 @@ class Mensaje
      *
      * @ORM\Column(name="nombre", type="string", length=50)
      */
-    private $nombre;
+    private $nombreMensaje;
 
     /**
      * @var string
@@ -68,26 +68,26 @@ class Mensaje
     }
 
     /**
-     * Set nombre
+     * Set nombreMensaje
      *
-     * @param string $nombre
+     * @param string $nombreMensaje
      * @return Mensaje
      */
-    public function setNombre($nombre)
+    public function setNombreMensaje($nombreMensaje)
     {
-        $this->nombre = $nombre;
+        $this->nombreMensaje = $nombreMensaje;
 
         return $this;
     }
 
     /**
-     * Get nombre
+     * Get nombreMensaje
      *
      * @return string 
      */
-    public function getNombre()
+    public function getNombreMensaje()
     {
-        return $this->nombre;
+        return $this->nombreMensaje;
     }
 
     /**

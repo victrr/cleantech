@@ -14,7 +14,7 @@
             <div class="col-md-2">
     		  	<div class="sidebar content-box" style="display: block;">
     		  	    <div class="thumbnail">
-                        <img src="{{asset('public/pictures/logo.png')}}" alt="..." class="img-rounded">
+                         <img src="{{asset('public/pictures/cleantechChallenge.png')}}" alt="..." class="img-rounded">
                     </div>
                     <!--<h3>{#{app.session.get('firstName')}#}</h3>--->
                     <ul class="nav">
@@ -48,6 +48,19 @@
                                 <li><a href="{{path('cleantech_empresa_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Empresa</a></li>
                             </ul>
                         </li>
+                        
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-envelope"></i> Avisos
+                                <span class="caret pull-right"></span>
+                            </a>
+                             <!--- Sub menu--->
+                            <ul>
+                                <li><a href="{{path('cleantech_mensaje_mensajes')}}"><i class="glyphicon glyphicon-list-alt"></i> Avisos</a></li>
+                                <li><a href="{{path('cleantech_mensaje_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Aviso</a></li>
+                            </ul>
+                        </li>
+                        
                     </ul>
                 </div>
             </div>

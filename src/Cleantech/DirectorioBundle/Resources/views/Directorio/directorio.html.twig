@@ -72,7 +72,7 @@
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estado <span class="caret"></span></a>
                                         <form class="dropdown-menu pre-scrollable" method="post" action="{{path('cleantech_directorio_buscarEstado')}}">
-                                            <li><button class="btn btn-block button-general btn-sm" type="button" name="as" value="as">Aguascalientes</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="as" value="as">Aguascalientes</button></li>
                                             <li><button class="btn btn-block button-general btn-sm" type="submit" name="bc" value="bc">Baja California</button></li>
                                             <li><button class="btn btn-block button-general btn-sm" type="submit" name="bs" value="bs">Baja California Sur</button></li>
                                             <li><button class="btn btn-block button-general btn-sm" type="submit" name="cc" value="cc">Campeche</button></li>
@@ -93,7 +93,7 @@
                                             <li><button class="btn btn-block button-general btn-sm" type="submit" name="nl" value="nl">Nuevo León</button></li>
                                             <li><button class="btn btn-block button-general btn-sm" type="submit" name="oc" value="oc">Oaxaca</button></li>
                                             <li><button class="btn btn-block button-general btn-sm" type="submit" name="pl" value="pl">Puebla</button></li>
-                                            <li><button class="btn btn-block button-general btn-sm" href="" type="submit" name="qt" value="qt">Querétaro</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="qt" value="qt">Querétaro</button></li>
                                             <li><button class="btn btn-block button-general btn-sm" type="submit" name="qr" value="qr">Quintana Roo</button></li>
                                             <li><button class="btn btn-block button-general btn-sm" type="submit" name="sp" value="sp">San Luis Potosí</button></li>
                                             <li><button class="btn btn-block button-general btn-sm" type="submit" name="sl" value="sl">Sinaloa</button></li>
@@ -108,14 +108,44 @@
                                     </li>
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Servicios <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Action</a></li>
-                                            <li><a href="#">Another action</a></li>
-                                            <li><a href="#">Something else here</a></li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="#">Separated link</a></li>
-                                        </ul>
+                                        <form class="dropdown-menu " method="post" action="{{path('cleantech_directorio_buscarServicio')}}">
+                                            
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="indus" value="indus">Industrial</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="dome" value="dome">Doméstico</button></li>
+                                        </form>
                                     </li>
+                                    
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Indusria <span class="caret"></span></a>
+                                        <form class="dropdown-menu " method="post" action="{{path('cleantech_directorio_buscarIndustria')}}">
+                                            
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="agri" value="agri">Agricultura</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="capa" value="capa">Captación</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="const" value="const">Construcción</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="consu" value="consu">Consumo masivo</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="ener" value="ener">Energía</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="quim" value="quim">Química</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="trans" value="trans">Transportes</button></li>
+                                        </form>
+                                    </li>
+                                    
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Área Tecnológica<span class="caret"></span></a>
+                                        <form class="dropdown-menu " method="post" action="{{path('cleantech_directorio_buscarArea')}}">
+                                            
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="ag" value="ag">Agua</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="cr" value="cr">Captura y Reducción de Gases</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="cm" value="cm">Combustibles</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="cs" value="cs">Conservación de Recursos</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="cv" value="cv">Construcción Verde</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="ee" value="ee">Eficiencia Energética</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="ge" value="ge">Generación de Energía</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="mc" value="mc">Materiales y Componentes</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="rs" value="rs">Residuos Sólidos</button></li>
+                                            <li><button class="btn btn-block button-general btn-sm" type="submit" name="ti" value="ti">Tecnologías de la Información</button></li>
+                                        </form>
+                                    </li>
+                                    
                                 </ul>
                                 
                                 <ul class="nav navbar-nav navbar-right">
@@ -177,19 +207,22 @@
                             {% endif %}
                             {% if pagination|length  %}
                             {% for empresa in pagination%}
-                            {% if empresa.descripcion != ('')%}
+                            {% if empresa.descripcion != ('') and empresa.telefono != (0) and empresa.estado != ('') and empresa.calle != ('')%}
                             <div class="col-xs-9 col-xs-offset-1">
                                 <div class="row">
-                                    <div id="contenedor-menu" class="col-lg-10 col-xs-offset-1">
+                                    <div id="contenedor-menu" class="col-lg-12 ">
                                         <div class="media">
                                             <div class="media-left media-middle">
-                                                <a href="#">
-                                                    {% if empresa.path == false %}
-    															<img class="media-object " src="{{asset('public/pictures/empresanull.png')}}"  class="img-responsive img-little" alt="Responsive image" style="width: 80px; height: 80px;">
+                                                
+                                                <div class="col-xs-6 col-md-3">
+                                                    <div >
+                                                          {% if empresa.path == false %}
+    															<img class="media-object imagen" src="{{asset('public/pictures/empresanull.png')}}"  class="img-responsive img-little" alt="Responsive image" >
     															{% elseif empresa.path !=false %}
-    															<img class="media-object " src="{{ asset('uploads/films/'~empresa.path) }}"  class="img-responsive img-little" alt="Responsive image" style="width: 80px; height: 80px;">
+    															<img class="media-object imagen" src="{{ asset('uploads/empresas/'~empresa.path) }}"  class="img-responsive img-little" alt="Responsive image" >
     															{%endif%} 
-                                                </a>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="media-body">
                                                 
@@ -205,19 +238,48 @@
                                                     <h5><span class="label label-primary">Telefóno:</span></h5>
                                                     <p>{{empresa.telefono}}</p>
                                                 </div>
-                                                <div class="col-xs-6">
+                                                <div class="col-xs-9">
                                                     <h5><span class="label label-default">Direccion:</span></h5> 
-                                                    <p>{{empresa.calle}}</p>
+                                                    <p>{{empresa.calle}}, {{empresa.colonia}},</p>
                                                     
                                                 </div>
+                                                </div>
+                                                <div class="col-lg-12">
                                                 <div class="col-xs-3"> 
-                                                    <h5><span class="label label-success">Estado:</span></h5> 
                                                     <p>{{empresa.estado}}</p>
                                                 </div>
+                                                {%if empresa.facebook != ('')%}
+                                                <div class="col-xs-2"> 
+                                                    <a href="{{asset(empresa.facebook)}}">
+                                                        <img  src="{{asset('public/pictures/face.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">
+                                                    </a>
                                                 </div>
-                                             
+                                                {%endif%}
+                                                {%if empresa.facebook != ('')%}
+                                                <div class="col-xs-2">
+                                                    <a href="{{asset(empresa.twitter)}}"> 
+                                                        <img  src="{{asset('public/pictures/twitt.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">
+                                                    </a href="{{asset(empresa.web)}}">
+                                                </div>
+                                                {%endif%}
+                                                {%if empresa.linkedin != ('')%}
+                                                <div class="col-xs-2">
+                                                    <a href="{{asset(empresa.linkedin)}}"> 
+                                                        <img  src="{{asset('public/pictures/in.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">
+                                                    </a>
+                                                </div>
+                                                {%endif%}
+                                                {%if empresa.web != ('')%}
+                                                <div class="col-xs-2"> 
+                                                    <a href="{{asset(empresa.web)}}">
+                                                        <img  src="{{asset('public/pictures/web.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px; color:white;">
+                                                    </a>
+                                                </div>
+                                                </div>
+                                                {%endif%}
                                                 
-                                      <div class="col-xs-2 col-xs-offset-4">
+                                                <div class="col-xs-2 col-xs-offset-4">
+                                                    <br/ >
                                                     <button class="btn button-general btn-sm" data-toggle="modal" data-target="#{{empresa.id}}"><i class="glyphicon glyphicon-menu-down"></i> </button>
                                                 </div>
                                                 
@@ -225,61 +287,92 @@
                                                 <!-- Modal -->
                                                 <div class="modal fade" id="{{empresa.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                                     <div class="modal-dialog" role="document">
-                                                        <div class="modal-content modal-font">
+                                                        <div class="modal-content modal-font" id="contenedor-modal">
                                                             <div class="modal-header">
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                                 <h4 class="modal-title text-center text-uppercase" id="myModalLabel">{{ empresa.nombre}}</h4>
                                                             </div>
-                                                            <div class="modal-body text-center">
+                                                            <div class="modal-body row">
                                                                 
-                                                                <div class="col-xs-offset-5">
+                                                                <div class="col-xs-12 text-center">
                                                                 {% if empresa.path == false %}
-    															<img class="media-object " src="{{asset('public/pictures/empresanull.png')}}"  class="img-responsive img-little" alt="Responsive image" style="width: 80px; height: 80px;">
+    															<img class="media-object imagen" src="{{asset('public/pictures/empresanull.png')}}"  class="img-responsive" alt="Responsive image">
     															{% elseif empresa.path !=false %}
-    															<img class="media-object " src="{{ asset('uploads/films/'~empresa.path) }}"  class="img-responsive img-little" alt="Responsive image" style="width: 80px; height: 80px;">
+    															<img class="media-object imagen" src="{{ asset('uploads/empresas/'~empresa.path) }}"  class="img-responsive" alt="Responsive image">
     															{%endif%}    
                                                                 
                                                                 
                                                                 
                                                                 </div>
-                                                                <div>
-                                                                    <h5 class="text-uppercase">descripción</h5>
-                                                                <p>{{empresa.descripcion}}</p>
+                                                                <div class="col-lg-12">
+                                                                    <h4 class="text-uppercase"><label class="label label-default">Descripción</label></h4>
+                                                                    <p>{{empresa.descripcion}}</p>
                                                                 </div>
                                                                 
-                                                                
-                                                                <div class="panel-body">  
-                                                                <h5 class="text-uppercase">rama tecnológica</h5>
-                                                                <p>{{empresa.ramaTecnologica}}</p>
+                                                               
+                                                                <div class="col-lg-6">  
+                                                                    <h4 class="text-uppercase"><label class="label label-default">Rama Tecnológica</label></h4>
+                                                                    <p>{{empresa.ramaTecnologica}}</p>
                                                                 </div>
                                                                 
-                                                                <div>
-                                                                    <h5 class="text-uppercase">industria</h5>
+                                                                <div class="col-lg-6">
+                                                                    <h4 class="text-uppercase"><label class="label label-default">Industria</label></h4>
                                                                     </span></h4><p>{{empresa.industria}}</p>
                                                                 
                                                                 </div>
-                                                                
-                                                                
-                                                                <div  class="panel-body">
-                                                                    <h5 class="text-uppercase">calle</h5>
-                                                                    <p>{{empresa.estado}}</p>
+                                                                <div class="col-lg-6">
+                                                                    <h4 class="text-uppercase"><label class="label label-default">Servicio</label></h4>
+                                                                    <p>{{empresa.servicio}}</p>
                                                                     
                                                                 </div>
-                                                                
-                                                                <div>
-                                                                    <h5 class="text-uppercase">industria</h5>
-                                                                <p>{{empresa.servicio}}</p>
-                                                                    
-                                                                </div>
-                                                                
-                                                                <div  class="panel-body">
-                                                                <h5 class="text-uppercase">contacto</h5>
+                                                                <div class="col-lg-4">
+                                                                <h4 class="text-uppercase"><label class="label label-default">contacto</label></h4>
                                                                 <p>{{empresa.telefono}}</p>
                                                                 </div>
+                                                                <div class="col-xs-12">
                                                                 
-                                                                <a href="{{asset(empresa.twitter)}} ">twitter</a>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn button-general" data-dismiss="modal">Cerrar</button>
+                                                                    <h4 class="text-uppercase"><label class="label label-default">Dirección</label></h4>
+                                                                    <p>{{empresa.estado}}, {{empresa.calle}}, {{empresa.colonia}}, C.P. {{empresa.cp}}</p>
+                                                                
+                                                                </div>
+                                                                
+                                                                
+                                                                <div class="col-lg-12 col-md-offset-2">
+                                                                    
+                                                                    {%if empresa.facebook != ('')%}
+                                                                    <div class="col-xs-2"> 
+                                                                        <a href="{{asset(empresa.facebook)}}">
+                                                                            <img  src="{{asset('public/pictures/face.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">
+                                                                        </a>
+                                                                    </div>
+                                                                    {%endif%}
+                                                                    {%if empresa.twitter != ('')%}
+                                                                    <div class="col-xs-2">
+                                                                        <a href="{{asset(empresa.twitter)}}"> 
+                                                                            <img  src="{{asset('public/pictures/twitt.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">
+                                                                        </a href="{{asset(empresa.web)}}">
+                                                                    </div>
+                                                                    {%endif%}
+                                                                    {%if empresa.linkedin != ('')%}
+                                                                    <div class="col-xs-2">
+                                                                        <a href="{{asset(empresa.linkedin)}}"> 
+                                                                            <img  src="{{asset('public/pictures/in.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">
+                                                                        </a>
+                                                                    </div>
+                                                                    {%endif%}
+                                                                    {%if empresa.web != ('')%}
+                                                                    <div class="col-xs-2"> 
+                                                                        <a href="{{asset(empresa.web)}}">
+                                                                            <img  src="{{asset('public/pictures/web.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px; color:white;">
+                                                                        </a>
+                                                                    </div>
+                                                                    
+                                                                    {%endif%}
+                                                                    
+                                                                    <br /><br />
+                                                                </div>
+                                                                <div class="col-lg-12 modal-footer">
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                               
                                                                 </div>
                                                             </div>
@@ -307,9 +400,43 @@
        <!--intro-body-->
 	</div>
 	
-    <div id="footer">
-      <div class="container">
-        <p class="muted credit text-center">© Copyright CleanTechChallengeMX.</p>
-      </div>
+<footer id="footer" class="site-footer fw-footer fw-footer-logo-retina" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 ">
+                <!---aqui falta contenido---->
+                
+                
+            </div>
+            <div class="col-xs-12 ">
+                <!---aqui falta contenido---->
+                 <div class="col-xs-4 col-xs-offset-4"> 
+                     © Copyright CleanTechChallengeMX
+                     <br>
+                     
+                </div>
+                
+                <div class="col-lg-12 col-md-offset-1">
+                    <br>
+                    <div class="col-lg-6">
+                       <h4>Contacto</h4>
+                        <h5>Telefóno: 442342323</h5>
+                        <h5>E-mail: GreenMomentum@askas.com</h5>
+                      
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="col-lg-3">
+                        <a href='https://www.facebook.com/CleantechMX/' target="_blank" style="color:white;"><img  src="{{asset('public/pictures/face.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">#CleantechMX</a>
+                        </div>
+                        <div class="col-lg-3">
+                        <a href='https://twitter.com/CleantechMX?ref_src=twsrc%5Etfw' target="_blank" style="color:white;"><img  src="{{asset('public/pictures/twitt.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">@CleantechMX</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    </footer>
 {% endblock %}

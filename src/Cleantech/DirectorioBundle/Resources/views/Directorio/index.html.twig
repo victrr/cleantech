@@ -15,7 +15,7 @@
             <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
                   <ul class="nav navbar-nav">
                     <li>
-                        <a class="navbar-brand page-scroll" href="index.html">
+                        <a class="navbar-brand page-scroll" href="{{path('cleantech_directorio_index')}}">
                             <i class="fa fa-play-circle"></i>  <span class="light"></span> cleantech
                         </a>
                     </li>
@@ -31,14 +31,12 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{{path('cleantech_directorio_directorio')}}">Directorio</a>
+                        <a class="page-scroll" href="#body">Directorio</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#login">login</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="{{path('cleantech_directorio_add')}}">prueba de imagen</a>
-                    </li>
+                  
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -64,8 +62,258 @@
             </div>
         </div>
 	</section>
-
-
+     
+     <section id="body">
+    
+            <div class="container">
+                <div class="row">
+                    <div class="intro-body-1"></div>
+                </div>
+                    <div class="row">
+                    <nav class="navbar navbar-inverse" id="menu2" >
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                
+                            </div>
+                    
+                      
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                
+                        <form class="navbar-form navbar-left" role="search" method="post" action="{{path('cleantech_directorio_busqueda_letra')}}">
+                            <div class="form-group">
+                                <input type="text"  name="buscar" class="form-control" placeholder="Buscar empresa">
+                            </div>
+                            <button type="submit" name="send" value="send" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                        </form>
+                                
+                                
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a  href="{{path('cleantech_directorio_directorio')}}">Busqueda Avanzada</a></li>
+                            
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                    </div>
+                   
+                   
+                                   
+                    <hr>
+                    <div class="contenido-body">
+                        <div id="contenido-menu"  class="col-xs-12 col-xs-offset-1">
+                            {% if not pagination|length %}
+                                <div class="col-xs-8 col-xs-offset-3" style="color: white;">
+                                    <h2>No se encontraron resultados</h2>
+                                </div>
+                            {% endif %}
+                            {% if pagination|length  %}
+                            {% for empresa in pagination%}
+                            {% if empresa.descripcion != ('')%}
+                            <div class="col-xs-9 col-xs-offset-1">
+                                <div class="row">
+                                    <div id="contenedor-menu" class="col-lg-12">
+                                        <div class="media">
+                                            <div class="media-left media-middle">
+                                                
+                                                <div class="col-xs-6">
+                                                    <div >
+                                                          {% if empresa.path == false %}
+    															<img class="media-object imagen" src="{{asset('public/pictures/empresanull.png')}}"  class="img-responsive" alt="Responsive image" >
+    															{% elseif empresa.path !=false %}
+    															<img class="media-object imagen" src="{{ asset('uploads/empresas/'~empresa.path) }}"  class="img-responsive" alt="Responsive image" >
+    															{%endif%} 
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                    
+                                               
+                                            </div>
+                                            <div class="media-body">
+                                                
+                                                <div class="col-xs-8">
+                                               
+                                                <h4 class="media-heading"><strong>{{ empresa.nombre}}</strong></h4>
+                                                <div id="truncar" >
+                                                {{empresa.descripcion}}
+                                                </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                <div class="col-xs-3">
+                                                    <h5><span class="label label-primary">Telefóno:</span></h5>
+                                                    <p>{{empresa.telefono}}</p>
+                                                </div>
+                                                <div class="col-xs-9">
+                                                    <h5><span class="label label-default">Direccion:</span></h5> 
+                                                    <p>{{empresa.calle}}, {{empresa.colonia}},</p>
+                                                    
+                                                </div>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                <div class="col-xs-3"> 
+                                                    <p>{{empresa.estado}}</p>
+                                                </div>
+                                                {%if empresa.facebook != ('')%}
+                                                <div class="col-xs-2"> 
+                                                    <a href="{{asset(empresa.facebook)}}">
+                                                        <img  src="{{asset('public/pictures/face.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">
+                                                    </a>
+                                                </div>
+                                                {%endif%}
+                                                {%if empresa.twitter != ('')%}
+                                                <div class="col-xs-2">
+                                                    <a href="{{asset(empresa.twitter)}}"> 
+                                                        <img  src="{{asset('public/pictures/twitt.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">
+                                                    </a href="{{asset(empresa.web)}}">
+                                                </div>
+                                                {%endif%}
+                                                {%if empresa.linkedin != ('')%}
+                                                <div class="col-xs-2">
+                                                    <a href="{{asset(empresa.linkedin)}}"> 
+                                                        <img  src="{{asset('public/pictures/in.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">
+                                                    </a>
+                                                </div>
+                                                {%endif%}
+                                                {%if empresa.web != ('')%}
+                                                <div class="col-xs-2"> 
+                                                    <a href="{{asset(empresa.web)}}">
+                                                        <img  src="{{asset('public/pictures/web.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px; color:white;">
+                                                    </a>
+                                                </div>
+                                                
+                                                {%endif%}
+                                                </div>
+                                                
+                                                <div class="col-xs-2 col-xs-offset-4">
+                                                    <br />
+                                                    <button class="btn button-general btn-sm" data-toggle="modal" data-target="#{{empresa.id}}"><i class="glyphicon glyphicon-menu-down"></i> </button>
+                                                </div>
+                                                
+                                               
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="{{empresa.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content modal-font" id="contenedor-modal">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                <h4 class="modal-title text-center text-uppercase" id="myModalLabel">{{ empresa.nombre}}</h4>
+                                                            </div>
+                                                            <div class="modal-body row">
+                                                                
+                                                                <div class="col-xs-12 text-center">
+                                                                {% if empresa.path == false %}
+    															<img class="media-object imagen" src="{{asset('public/pictures/empresanull.png')}}"  class="img-responsive" alt="Responsive image">
+    															{% elseif empresa.path !=false %}
+    															<img class="media-object imagen" src="{{ asset('uploads/empresas/'~empresa.path) }}"  class="img-responsive" alt="Responsive image">
+    															{%endif%}    
+                                                                
+                                                                
+                                                                
+                                                                </div>
+                                                                <div class="col-lg-12">
+                                                                    <h4 class="text-uppercase"><label class="label label-default">Descripción</label></h4>
+                                                                    <p>{{empresa.descripcion}}</p>
+                                                                </div>
+                                                                
+                                                               
+                                                                <div class="col-lg-6">  
+                                                                    <h4 class="text-uppercase"><label class="label label-default">Rama Tecnológica</label></h4>
+                                                                    <p>{{empresa.ramaTecnologica}}</p>
+                                                                </div>
+                                                                
+                                                                <div class="col-lg-6">
+                                                                    <h4 class="text-uppercase"><label class="label label-default">Industria</label></h4>
+                                                                    </span></h4><p>{{empresa.industria}}</p>
+                                                                
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <h4 class="text-uppercase"><label class="label label-default">Servicio</label></h4>
+                                                                    <p>{{empresa.servicio}}</p>
+                                                                    
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                <h4 class="text-uppercase"><label class="label label-default">contacto</label></h4>
+                                                                <p>{{empresa.telefono}}</p>
+                                                                </div>
+                                                                <div class="col-xs-12">
+                                                                
+                                                                    <h4 class="text-uppercase"><label class="label label-default">Dirección</label></h4>
+                                                                    <p>{{empresa.estado}}, {{empresa.calle}}, {{empresa.colonia}}, C.P. {{empresa.cp}}</p>
+                                                                
+                                                                </div>
+                                                                
+                                                                
+                                                                <div class="col-lg-12 col-md-offset-2">
+                                                                    
+                                                                    {%if empresa.facebook != ('')%}
+                                                                    <div class="col-xs-2"> 
+                                                                        <a href="{{asset(empresa.facebook)}}">
+                                                                            <img  src="{{asset('public/pictures/face.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">
+                                                                        </a>
+                                                                    </div>
+                                                                    {%endif%}
+                                                                    {%if empresa.twitter != ('')%}
+                                                                    <div class="col-xs-2">
+                                                                        <a href="{{asset(empresa.twitter)}}"> 
+                                                                            <img  src="{{asset('public/pictures/twitt.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">
+                                                                        </a href="{{asset(empresa.web)}}">
+                                                                    </div>
+                                                                    {%endif%}
+                                                                    {%if empresa.linkedin != ('')%}
+                                                                    <div class="col-xs-2">
+                                                                        <a href="{{asset(empresa.linkedin)}}"> 
+                                                                            <img  src="{{asset('public/pictures/in.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">
+                                                                        </a>
+                                                                    </div>
+                                                                    {%endif%}
+                                                                    {%if empresa.web != ('')%}
+                                                                    <div class="col-xs-2"> 
+                                                                        <a href="{{asset(empresa.web)}}">
+                                                                            <img  src="{{asset('public/pictures/web.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px; color:white;">
+                                                                        </a>
+                                                                    </div>
+                                                                    
+                                                                    {%endif%}
+                                                                    
+                                                                    <br /><br />
+                                                                </div>
+                                                                <div class="col-lg-12 modal-footer">
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                              
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                               
+                                        </div><!--media--->
+                                    </div>
+                                </div>
+                            <hr>
+                            </div><!--xs-9-->
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                        
+                        </div>
+                    </div><!--contenido-body-->
+                    <div class="navigation">
+                        {{knp_pagination_render(pagination)}}
+                    </div>
+                
+            </div><!--container-->
+       <!--intro-body-->
+	</section>
+     
+     
 	<section id='login'>
         <div  class="intro-login">
     		<div  class="container content-section ">
@@ -96,8 +344,7 @@
             </div>
     	</div>	
 	</section>
-
-
+    
     <footer id="footer" class="site-footer fw-footer fw-footer-logo-retina" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
 
     <div class="container">
@@ -109,10 +356,33 @@
             </div>
             <div class="col-xs-12 ">
                 <!---aqui falta contenido---->
-             <div class="col-xs-4 col-xs-offset-4"> © Copyright CleanTechChallengeMX</div>
+                 <div class="col-xs-4 col-xs-offset-4"> 
+                     © Copyright CleanTechChallengeMX
+                     <br>
+                     
+                </div>
+                
+                <div class="col-lg-12 col-md-offset-1">
+                    <br>
+                    <div class="col-lg-6">
+                       <h4>Contacto</h4>
+                        <h5>Telefóno: 442342323</h5>
+                        <h5>E-mail: GreenMomentum@askas.com</h5>
+                      
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="col-lg-3">
+                        <a href='https://www.facebook.com/CleantechMX/' target="_blank" style="color:white;"><img  src="{{asset('public/pictures/face.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">#CleantechMX</a>
+                        </div>
+                        <div class="col-lg-3">
+                        <a href='https://twitter.com/CleantechMX?ref_src=twsrc%5Etfw' target="_blank" style="color:white;"><img  src="{{asset('public/pictures/twitt.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">@CleantechMX</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     </footer>
+    
 {% endblock %}

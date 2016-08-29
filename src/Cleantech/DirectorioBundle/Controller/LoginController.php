@@ -63,7 +63,7 @@ class LoginController extends Controller
             $datoEm = $query->getResult();
             
             $query = $mensajes->createQueryBuilder('m')
-                ->select('m.nombre')
+                ->select('m.nombreMensaje')
                 ->orderBy('m.id', 'DESC')
                 ->setMaxResults(5)
                 ->getQuery();
@@ -87,10 +87,6 @@ class LoginController extends Controller
             
         $datos = $em->getRepository('CleantechDirectorioBundle:Mensaje')->findAll();
         /*$mensaje = $em->getRepository('CleantechDirectorioBundle:Empresa')->findOneByUser($user); */
-        if(!$datos)
-        {
-             throw $this->createNotFoundException('No hay información');
-        }
         
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
@@ -101,13 +97,17 @@ class LoginController extends Controller
         );
         
         
-        
-        return $this->render('CleantechDirectorioBundle:Directorio:perfil.html.twig', array('pagination' => $pagination));
-            
+       if(!$user->getRole('ROLE_ADMIN'))
+       {
+            return $this->redirectToRoute('cleantech_directorio_index');
+       }
+       
+            return $this->render('CleantechDirectorioBundle:Directorio:perfil.html.twig', array('pagination' => $pagination));
+       
             
         }
          
-
+        
         return $this->redirectToRoute('cleantech_directorio_index');
     }
 

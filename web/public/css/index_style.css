@@ -287,6 +287,14 @@ body
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+#contenedor-modal{
+    color: #fff;
+    padding-top:4px;
+    padding-bottom: 6px; 
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
 #separador{
   height:20px;
 }
@@ -629,11 +637,27 @@ fadeIn
 }
 
 
+.imagen {
+height: 100px;
+width: 150px;
+margin: 0 auto 0 auto;
+padding: 5px;
 
 
+}
+.imagen img { max-width: 99%; }
 
-
-
+.ir-arriba {
+	display:none;
+	padding:20px;
+	background:#024959;
+	font-size:20px;
+	color:#fff;
+	cursor:pointer;
+	position: fixed;
+	bottom:20px;
+	right:20px;
+}
 
 
 

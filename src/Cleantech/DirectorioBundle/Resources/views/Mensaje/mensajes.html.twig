@@ -14,7 +14,7 @@
             <div class="col-md-2">
     		  	<div class="sidebar content-box" style="display: block;">
     		  	    <div class="thumbnail">
-                        <img src="{{asset('public/pictures/logo.png')}}" alt="..." class="img-rounded">
+                         <img src="{{asset('public/pictures/cleantechChallenge.png')}}" alt="..." class="img-rounded">
                     </div>
                     <!--<h3>{#{app.session.get('firstName')}#}</h3>--->
                     <ul class="nav">
@@ -49,7 +49,7 @@
                             </ul>
                         </li>
                         
-                        <li class="submenu">
+                        <li class="submenu actives">
                             <a href="#">
                                 <i class="glyphicon glyphicon-envelope"></i> Mensajes
                                 <span class="caret pull-right"></span>
@@ -60,6 +60,7 @@
                                 <li><a href="{{path('cleantech_mensaje_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Mensaje</a></li>
                             </ul>
                         </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -78,7 +79,7 @@
 										<div class="navbar-inner">
 											<ol class="breadcrumb">
 												<li><a href="{{path('cleantech_directorio_perfil')}}">Inicio</a></li>
-												<li class="active">mensajes</li>
+												<li class="active">Avisos</li>
 											</ol>										
 										 </div>
 									</div>
@@ -86,9 +87,25 @@
 									<div class="tab-content">
 								    	<div class="tab-pane active">
 											<div class="content-box-large">
+												{%for flashMessage in app.session.flashbag.get('success') %}
+								                    <div class="alert alert-success" role="alert">
+								         				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														</button>							
+								                        <div class="container"> {{flashMessage}}</div>
+								                    </div>
+						                		{% endfor %}
 							  					<div class="panel-heading">
-													<div class="panel-title"><i class="glyphicon glyphicon-list-alt"></i> <strong> mensajes </strong></div>
+													<div class="panel-title"><i class="glyphicon glyphicon-list-alt"></i> <strong> Avisos </strong></div>
 												</div>
+												<div class="col-xs-12">
+													<form class="navbar-form navbar-left" role="search" method="post" action="{{path('cleantech_mensaje_buscar_mensaje')}}">
+								                            <div class="form-group">
+								                                <input type="text"  name="buscar" class="form-control" placeholder="Buscar...">
+								                            </div>
+								                            <button type="submit" name="send" value="send" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+								                    </form>
+							                    </div>
 							  					<div class="panel-body">
 							  						<div class="table-responsive">
 							  							<table class="table">
@@ -105,14 +122,15 @@
 										              		<tbody>
 											              	{% for mensaje in mensajes %}
 												                <tr>
-													                <td >{{ mensaje.nombre }}</td>
+													                <td >{{ mensaje.nombreMensaje }}</td>
 													                <td>{{ mensaje.descripcion }}</td>
 													                <td>{{ mensaje.user.fullName }}</td>
 													                <td>{{ mensaje.createdAt|date('d-m-Y H:i') }}</td>
 													                <td>{{ mensaje.updatedAt|date('d-m-Y H:i') }}</td>
 													                <td>
 											                  		<!--<a href="" >Ver</a>-->
-											                  	
+											                  			<a href="{{ path('cleantech_mensaje_view', {id: mensaje.id}) }}" class="btn btn-sm btn-info">ver</a>
+												                  		<a href="{{ path('cleantech_mensaje_edit', {id: mensaje.id}) }}" class="btn btn-sm btn-primary">Editar</a>
 										                  			</td>
 										                		</tr>
 										                	{% endfor %}

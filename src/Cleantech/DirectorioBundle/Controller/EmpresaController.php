@@ -57,11 +57,20 @@ class EmpresaController extends Controller
             
             $empresa->setRamaTecnologica('');
             $empresa->setIndustria('');
-            
+            $empresa->setCalle('');
+            $empresa->setColonia('');
+            $empresa->setCp('');
+            $empresa->setMunicipio('');
             $empresa->setEstado('');
             $empresa->setTelefono('');
             $empresa->setServicio('');
             $empresa->setDescripcion('');
+            $empresa->setRSocial('');
+            $empresa->setFacebook('');
+            $empresa->setTwitter('');
+            $empresa->setLinkedin('');
+            $empresa->setWeb('');
+            
             $em->persist($empresa);
             $em->flush();
             
@@ -129,6 +138,8 @@ class EmpresaController extends Controller
             
             
             $em->flush();
+            
+            $this->addFlash('success','Se han guardado los cambios.');
             return $this->redirectToRoute('cleantech_empresa_edit', array('id' => $empresa->getId()));
         }
         
@@ -169,4 +180,50 @@ class EmpresaController extends Controller
         ->getForm();
         
     }
+    
+    
+    public function buscarEmpresaAction(Request $request)
+    {
+        
+        $em = $this->getDoctrine()->getManager();
+        $empresas = $em->getRepository('CleantechDirectorioBundle:Empresa');
+        
+        if($request->getMethod()=="POST")
+        {
+            $buscar = $request->get("buscar");
+            $send = $request->get("send");
+            
+            if($buscar)
+            {
+            $query = $empresas->createQueryBuilder('e')
+                    ->where('e.nombre like :nombre')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('nombre', '%'.$buscar.'%')
+                    ->getQuery();
+                $empresa = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $empresa, $request->query->getInt('page',1),
+            5
+            
+            
+        );
+
+               
+            return $this->render('CleantechDirectorioBundle:Empresa:empresas.html.twig', array('empresas' => $pagination ));
+            
+            }
+            
+            else if($send)
+            {
+                return $this->redirectToRoute('cleantech_empresa_empresas');   
+            }
+            
+            
+        }
+        
+       
+    }
+    
 }

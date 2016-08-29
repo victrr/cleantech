@@ -1,0 +1,225 @@
+{%extends 'layoutpanel.html.twig'%}
+     
+{% block body %}
+    <div class="header">
+	     <div class="container">
+	         <div class="row">
+	        </div>
+	     </div>
+	</div>
+
+	{{ parent()}}
+	
+
+    <!-- Page Content -->
+    <div class="container">
+       
+        <div class="page-content">
+        	<div class="row">
+            <span class="ir-arriba"><i class="glyphicon glyphicon-menu-up"></i></span>
+            <div class="col-md-3">
+                <h3><i class="glyphicon glyphicon-user"></i> Manual para administradores</h3>
+                <div class="list-group">
+                    <a href="{{path('cleantech_directorio_perfil')}}" class="list-group-item"><i class="glyphicon glyphicon-home"></i> Inicio</a>
+                    <a href="#profile" class="list-group-item"><i class="glyphicon glyphicon-cog"></i> ¿Cómo actualizar mi perfil?</a>
+                    <a href="#addUser" class="list-group-item"><i class="glyphicon glyphicon-plus"></i> ¿Cómo añadir un usuario?</a>
+                    <a href="#optUser" class="list-group-item"><i class="glyphicon glyphicon-list-alt"></i> ¿Dónde visualizar, editar y eliminar usuarios?</a>
+                    <a href="#actUser" class="list-group-item"><i class="glyphicon glyphicon-alert"></i> ¿Cómo deshabilitar o habilitar a un usuario no administrador?</a>
+                    <a href="#addComp" class="list-group-item"><i class="glyphicon glyphicon-plus"></i> ¿Cómo añadir una empresa al sistema?</a>
+                    <a href="#optComp" class="list-group-item"><i class="glyphicon glyphicon-list-alt"></i> Visualizar o editar una empresa</a>
+                    <a href="#addMssg" class="list-group-item"><i class="glyphicon glyphicon-envelope"></i> ¿Cómo crear un mensaje?</a>
+                    <a href="#optMssg" class="list-group-item"><i class="glyphicon glyphicon-list-alt"></i> Visualizar o editar un mensaje</a>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+            <h2><i class="glyphicon glyphicon-flag"></i> Inicio</h2>
+                <div class="thumbnail">
+                    
+                    <div class="caption-full">
+                        <!--<h4 class="pull-right">$24.99</h4>-->
+                        <!--<h4>¿Qué hay en la página principal?</h4>-->
+                        <p>Al ingresar en la sesión se puede observar el formulario de inicio, desde dicho formulario se logran visualizar los siguientes rubros:</p>
+                        <p>1. Configuración de perfil (la configuración se puede realizar desde el nombre de usuario o dando clic en: <i class="glyphicon glyphicon-cog"></i> Perfil).</p>
+                        <p>2. Salir de la sesión (Haz clic en: <i class="glyphicon glyphicon-log-out"></i> Salir, localizado en el lado derecho de la barra superior para cerrar tu sesión).</p>
+                        <p>3. Menús de actualización o configuración.</p>
+                        <p>4. Métricas (información relevante sobre los últimos sucesos en la aplicación web).</p>
+                        <img class="img-responsive" src="{{ asset('public/pictures/adm_1.png')}}" alt="">
+                    </div>
+                </div>
+
+                <a name="profile"></a>
+                <h2><i class="glyphicon glyphicon-cog"></i> ¿Cómo actualizar mi perfil?</h2>
+
+                <div class="well">
+
+                    <div class="caption-full">
+                        <p>1. Para cambiar la información de perfil debemos dar clic en nuestro nombre de usuario o dentro de <i class="glyphicon glyphicon-wrench"></i> y seleccionar <i class="glyphicon glyphicon-cog"></i> Perfil.</p>
+                        <img class="img-responsive" src="{{ asset('public/pictures/adm_1.1.png')}}" alt="">
+                        <br>
+                        <p>2. Cambiamos la información que se encuentra en las cajas de texto.</p>
+                        <img class="img-responsive" src="{{ asset('public/pictures/adm_1.2.png')}}" alt="">
+                        <br>
+                        <p>3. Seleccionamos alguna foto de nuestro ordenador como foto de perfil y al finalizar presionamos el botón guardar.</p>
+                        <img class="img-responsive" src="{{ asset('public/pictures/adm_1.3.png')}}" alt="">
+                        <br>
+                        <p>4. Finalmente recibiremos un mensaje validando que el cambio se ha efectuado correctamente.</p>
+                        <img class="img-responsive" src="{{ asset('public/pictures/adm_1.4.png')}}" alt="">
+                    </div>
+
+                </div>
+
+                <a name="addUser"></a>
+                <h2><i class="glyphicon glyphicon-plus"></i> ¿Cómo añadir un usuario?</h2>
+
+                <div class="well">
+                    
+                    <div class="caption-full">
+                        <p>1. Para añadir a un usuario debemos desplegar el menú <i class="glyphicon glyphicon-user"></i> Usuarios, situado en el panel izquierdo y dar clic en la opción <i class="glyphicon glyphicon-plus"></i> Añadir Usuario.</p>
+                        <img class="img-responsive" src="{{ asset('public/pictures/adm_2.png')}}" alt="">
+                        <br>
+                        <p>2. Dentro del formulario se deben llenar los campos con los datos del usuario que deseamos registrar (los usuarios administradores solo pueden dar de alta a usuarios y no a otros administradores).</p>
+                        <img class="img-responsive" src="{{ asset('public/pictures/adm_2.2.png')}}" alt="">
+                        <br>
+                        <p>3. Al finalizar debemos presionar el botón Crear y recibiremos un mensaje validando que el usuario se ha creado correctamente.</p>
+                        <img class="img-responsive" src="{{ asset('public/pictures/adm_2.2.1.png')}}" alt=""> 
+                    </div>
+
+                </div>
+
+                <a name="optUser"></a>
+                <h2><i class="glyphicon glyphicon-list-alt"></i> ¿Dónde visualizar, editar y eliminar usuarios?</h2>
+
+                <div class="well">
+                    <p>1. Para añadir a un usuario debemos desplegar el menú Usuarios, situado en el panel izquierdo y dar clic en la opción <i class="glyphicon glyphicon-list-alt"></i> Usuarios.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_2-2.png')}}" alt=""> 
+                    <br>
+                    <p>2. Dentro del formulario podemos encontrar un buscador rápido y una lista con los usuarios registrados en el sistema. Podemos realizar varias acciones, como: Ver, Editar y deshabilitar la cuenta.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_2.1.png')}}" alt="">
+                    <br>
+                    <p>3. Para ver la información de un usuario o administrador debemos dar clic al botón ver (los usuarios administradores pueden ver la información de otros administradores, pero no pueden editarla).</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_2.1.2.png')}}" alt="">
+                    <br>
+                    <p>4. Si deseamos editar la información de un usuario debemos presionar el botón <i class="glyphicon glyphicon-edit"></i> Editar.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_2.1.7.png')}}" alt="">
+                    <br>
+                    <p>5. En el formulario debemos sustituir los valores y presionar el botón Editar Usuario.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_2.1.9.png')}}" alt="">
+                    <br>
+                    <p>6. Finalmente recibiremos un mensaje validando que el cambio se ha efectuado correctamente.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_2.1.10.png')}}" alt="">
+                    <br>
+                    <p>7. Si deseamos borrar al usuario, debemos presionar el botón <i class="glyphicon glyphicon-trash"></i> Eliminar y recibiremos el siguiente mensaje (si eliminamos al usuario se borrará automaticamente la empresa de dicho usuario).</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_2.1.8.png')}}" alt="">
+                </div>
+
+                <a name="actUser"></a>
+                <h2><i class="glyphicon glyphicon-alert"></i> ¿Cómo deshabilitar o habilitar a un usuario no administrador?</h2>
+
+                <div class="well">
+                    <p>1. Dentro del formulario Usuarios debemos presionar el botón Activo o Inactivo dependiendo de la acción que deseemos.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_2.1.3.png')}}" alt=""> 
+                    <br>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_2.1.4.png')}}" alt="">
+                    <br>
+                    <p>2. Dependiendo de la acción que realicemos será el mensaje que recibiremos.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_2.1.5.png')}}" alt="">
+                    <br>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_2.1.6.png')}}" alt="">                    
+                </div>
+
+                <a name="addComp"></a>
+                <h2><i class="glyphicon glyphicon-plus"></i> ¿Cómo añadir una empresa al sistema?</h2>
+
+                <div class="well">
+                    <p>1. Para añadir una empresa debemos desplegar el menú <i class="glyphicon glyphicon-leaf"></i> Empresas, situado en el panel izquierdo y dar clic en la opción <i class="glyphicon glyphicon-plus"></i> Añadir Empresa.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_3-3.png')}}" alt=""> 
+                    <br>
+                    <p>2. Dentro del formulario se deben llenar los campos con los datos de la empresa que deseamos registrar (para vincular la empresa al cliente debemos seleccionar el correo electrónico de dicho cliente).</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_3.2.png')}}" alt="">
+                    <br>
+                    <p>3. Después de haber presionado el botón crear, se nos redigirá al formulario de <i class="glyphicon glyphicon-list-alt"></i> Empresas.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_3.1.png')}}" alt="">                    
+                </div>
+
+                <a name="optComp"></a>
+                <h2><i class="glyphicon glyphicon-list-alt"></i> Visualizar o editar una empresa.</h2>
+
+                <div class="well">
+                    <p>1. Para visualizar o editar una empresa debemos desplegar el menú <i class="glyphicon glyphicon-leaf"></i> Empresas, situado en el panel izquierdo y dar clic en la opción <i class="glyphicon glyphicon-list-alt"></i> Empresas.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_3.png')}}" alt=""> 
+                    <br>
+                    <p>2. Dentro del formulario observamos una tabla con un buscador rápido y las empresas (para eliminar la empresa se debe borrar al usuario).</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_3.1.png')}}" alt="">
+                    <br>
+                    <p>3. Para ver la información de la empresa daremos clic al botón ver.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_3.1.1.png')}}" alt="">
+                    <br>
+                    <p>4. Para editar la información de la empresa daremos clic al botón <i class="glyphicon glyphicon-edit"></i> Editar.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_3.1.2.png')}}" alt="">
+                    <br>
+                    <p>5. Si realizamos un cambio a la empresa, recibiremos un mensaje validando que el cambio se ha efectuado correctamente.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_3.1.3.png')}}" alt="">                    
+                </div>
+
+                <a name="addMssg"></a>
+                <h2><i class="glyphicon glyphicon-envelope"></i> ¿Cómo crear un mensaje?</h2>
+
+                <div class="well">
+                    <p>1. Para crear un mensaje debemos desplegar el menú <i class="glyphicon glyphicon-envelope"></i> Mensajes, situado en el panel izquierdo y dar clic en la opción <i class="glyphicon glyphicon-plus"></i> Añadir Mensaje.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_4-4.png')}}" alt=""> 
+                    <br>
+                    <p>2. Dentro del formulario se deben llenar los campos con los datos del mensaje que deseamos registrar (dicho mensaje será visualizado en un panel de la sesión usuarios).</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_4.2.png')}}" alt="">
+                    <br>
+                    <p>3. Después de haber presionado el botón crear, recibiremos un mensaje validando que el cambio se ha efectuado correctamente.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_4.2.1.png')}}" alt="">                    
+                </div>
+
+                <a name="optMssg"></a>
+                <h2><i class="glyphicon glyphicon-list-alt"></i> Visualizar o editar un mensaje.</h2>
+
+                <div class="well">
+                    <p>1. Para visualizar o editar un mensaje debemos desplegar el menú <i class="glyphicon glyphicon-envelope"></i> Mensajes, situado en el panel izquierdo y dar clic en la opción <i class="glyphicon glyphicon-list-alt"></i> Mensajes.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_4.png')}}" alt=""> 
+                    <br>
+                    <p>2. Dentro del formulario observamos una tabla con un buscador rápido y los mensajes (para eliminar el mensaje debemos dar clic en editar).</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_4.1.png')}}" alt="">
+                    <br>
+                    <p>3. Para ver la información del mensaje daremos clic al botón ver.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_4.1.1.png')}}" alt="">
+                    <br>
+                    <p>4. Para editar la información del mensaje daremos clic al botón <i class="glyphicon glyphicon-edit"></i> Editar.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_4.1.2.png')}}" alt="">
+                    <br>
+                    <p>5. Si realizamos un cambio al mensaje, recibiremos un mensaje validando que el cambio se ha efectuado correctamente.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_4.1.3.png')}}" alt="">
+                    <br>
+                    <p>6. Si deseamos borrar el mensaje, debemos presionar el botón <i class="glyphicon glyphicon-trash"></i> Eliminar y recibiremos el siguiente mensaje.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/adm_4.1.4.png')}}" alt="">                    
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+    <!-- /.container -->
+ <div class="container">
+	         <div class="row">
+	           <div class="col-xs-12"> <br ></div>
+	        </div>
+	     </div>
+	<br ><br ><br ><br ><br >
+    <!-- /.container -->
+<footer>
+        <div class="container">
+            <div class="copy text-center">
+               CLEANTECH CHALLENGUE <a href='#'>Website</a>
+            </div>
+        </div>
+</footer>
+  
+
+{% endblock %}

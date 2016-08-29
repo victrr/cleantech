@@ -11,3 +11,25 @@ cleantech_mensaje_create:
     defaults: { _controller: CleantechDirectorioBundle:Mensaje:create }
     methods: POST
     
+cleantech_mensaje_view:
+    path:   /mensaje/view/{id}
+    defaults: { _controller: CleantechDirectorioBundle:Mensaje:view }
+    
+cleantech_mensaje_edit:
+    path:   /mensaje/edit/{id}
+    defaults: { _controller: CleantechDirectorioBundle:Mensaje:edit }
+    
+cleantech_mensaje_update:
+    path:   /mensaje/update/{id}
+    defaults: { _controller: CleantechDirectorioBundle:Mensaje:update }
+    methods: [POST, PUT]
+    
+    
+cleantech_mensaje_delete:
+    path:   /mensaje/delete/{id}
+    defaults: { _controller: CleantechDirectorioBundle:Mensaje:delete }
+    methods: [POST, DELETE]
+    
+cleantech_mensaje_buscar_mensaje:
+    path:   /buscar_mensaje
+    defaults: { _controller: CleantechDirectorioBundle:Mensaje:buscarMensaje }

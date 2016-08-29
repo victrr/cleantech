@@ -14,7 +14,7 @@
             <div class="col-md-2">
     		  	<div class="sidebar content-box" style="display: block;">
     		  	    <div class="thumbnail">
-                        <img src="{{asset('public/pictures/logo.png')}}" alt="..." class="img-rounded">
+                         <img src="{{asset('public/pictures/cleantechChallenge.png')}}" alt="..." class="img-rounded">
                     </div>
                     <!--<h3>{#{app.session.get('firstName')}#}</h3>--->
                     <ul class="nav">
@@ -48,6 +48,19 @@
                                 <li><a href="{{path('cleantech_empresa_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Empresa</a></li>
                             </ul>
                         </li>
+                        
+                        <li class="submenu actives">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-envelope"></i> Avisos
+                                <span class="caret pull-right"></span>
+                            </a>
+                             <!--- Sub menu--->
+                            <ul>
+                                <li><a href="{{path('cleantech_mensaje_mensajes')}}"><i class="glyphicon glyphicon-list-alt"></i> Avisos</a></li>
+                                <li><a href="{{path('cleantech_mensaje_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Aviso</a></li>
+                            </ul>
+                        </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -65,25 +78,33 @@
 										<div class="navbar-inner">
 											<ol class="breadcrumb">
 												<li><a href="{{path('cleantech_directorio_perfil')}}">Inicio</a></li>
-												<li class="active">Añadir Usuario</li>
+												<li class="active">Añadir Aviso</li>
 											</ol>										
 										 </div>
 									</div>
 									<div class="tab-content">
 								    	<div class="tab-pane active">
+								    		{%for flashMessage in app.session.flashbag.get('success') %}
+							                    <div class="alert alert-success" role="alert">
+							         				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>							
+							                        <div class="container"> {{flashMessage}}</div>
+							                    </div>
+						                	{% endfor %}
 								    		<div class="panel-heading">
-												<div class="panel-title"><i class="glyphicon glyphicon-pencil"></i> <strong> Añadir usuario: </strong></div>
+												<div class="panel-title"><i class="glyphicon glyphicon-pencil"></i> <strong> Añadir Aviso: </strong></div>
 											</div>
 											<div class="panel-body">
 								      			{{ form_start(form, { 'attr' : {'novalidate' : 'novalidate', 'role' : 'form', 'class' : 'form-horizontal'} }) }}
 										  
 										  			<div class="form-group">
 											  			<div class="col-sm-2 control-label">
-														    {{form_label(form.nombre) }}
+														    {{form_label(form.nombreMensaje) }}
 														</div>
 														<div class="col-sm-8">
-														    {{form_widget(form.nombre, {'attr' : {'class' : 'form-control', 'placeholder' : 'usuario'} }) }}
-														<span class="text-danger">{{ form_errors(form.nombre) }}</span>
+														    {{form_widget(form.nombreMensaje, {'attr' : {'class' : 'form-control', 'placeholder' : 'nombre'} }) }}
+														<span class="text-danger">{{ form_errors(form.nombreMensaje) }}</span>
 											    		</div>
 											  		</div>
 											  
@@ -92,7 +113,7 @@
 												    		{{form_label(form.descripcion) }}
 												    	</div>
 												    	<div class="col-sm-8">
-												    		{{form_widget(form.descripcion, {'attr' : {'class' : 'form-control', 'placeholder' : 'nombre'} }) }}
+												    		{{form_widget(form.descripcion, {'attr' : {'class' : 'form-control', 'placeholder' : 'descripcion'} }) }}
 												    		<span class="text-danger">{{ form_errors(form.descripcion) }}</span>
 												    	</div>
 												    	
@@ -102,12 +123,13 @@
 											 	
 											  		<div class="form-group" >
 											  			<div class="col-sm-offset-2 col-sm-10">
-											  				{{form_widget(form.save, {'label' : 'Crear usuario', 'attr' : {'class' : 'btn btn-primary'} }) }}
+											  				{{form_widget(form.save, {'label' : 'Crear', 'attr' : {'class' : 'btn btn-primary'} }) }}
 											  			</div>
 											  		</div>
 												{{ form_end(form) }}
 											</div>
 								    	</div>
+								    	<br /><br />
 									</div>	
 								</div>
 		  					</div>
@@ -116,6 +138,7 @@
 				</div>
 		  	</div>
 		</div>
+		<br /><br /><br />
     </div>
 
     <footer>

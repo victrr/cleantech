@@ -14,7 +14,7 @@
             <div class="col-md-2">
     		  	<div class="sidebar content-box" style="display: block;">
     		  	    <div class="thumbnail">
-                        <img src="{{asset('public/pictures/logo.png')}}" alt="..." class="img-rounded">
+                         <img src="{{asset('public/pictures/cleantechChallenge.png')}}" alt="..." class="img-rounded">
                     </div>
                     <!--<h3>{#{app.session.get('firstName')}#}</h3>--->
                     <ul class="nav">
@@ -48,6 +48,19 @@
                                 <li><a href="{{path('cleantech_empresa_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Empresa</a></li>
                             </ul>
                         </li>
+                        
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-envelope"></i> Avisos
+                                <span class="caret pull-right"></span>
+                            </a>
+                             <!--- Sub menu--->
+                            <ul>
+                                <li><a href="{{path('cleantech_mensaje_mensajes')}}"><i class="glyphicon glyphicon-list-alt"></i> Avisos</a></li>
+                                <li><a href="{{path('cleantech_mensaje_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Aviso</a></li>
+                            </ul>
+                        </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -81,6 +94,16 @@
 							                        <div class="container"> {{flashMessage}}</div>
 							                    </div>
 						                	{% endfor %}
+						                	
+								    		{%for flashMessage in app.session.flashbag.get('success') %}
+							                    <div class="alert alert-success" role="alert">
+							         				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>							
+							                        <div class="container"> {{flashMessage}}</div>
+							                    </div>
+						                	{% endfor %}
+						                	
 								    		{%for flashMessage in app.session.flashbag.get('alert') %}
 							                    <div class="alert alert-warning" role="alert">
 							         				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -93,7 +116,16 @@
 											<div class="content-box-large">
 							  					<div class="panel-heading">
 													<div class="panel-title"><i class="glyphicon glyphicon-list-alt"></i> <strong> Usuarios </strong></div>
+													 
 												</div>
+												<div class="col-xs-12">
+													<form class="navbar-form navbar-left" role="search" method="post" action="{{path('cleantech_user_buscar_usuario')}}">
+								                            <div class="form-group">
+								                                <input type="text"  name="buscar" class="form-control" placeholder="Buscar...">
+								                            </div>
+								                            <button type="submit" name="send" value="send" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+								                    </form>
+							                    </div>
 							  					<div class="panel-body">
 							  						<div class="table-responsive">
 							  							<table class="table">
@@ -137,7 +169,7 @@
 										                  				
 											                  			<a href="{{ path('cleantech_user_view', {id: user.id}) }}" class="btn btn-sm btn-info">ver</a>
 											                  			
-											                  			{% if user.role == ('ROLE_USER') or session.email == user.email or session.role == ('ROLE_SUPER_ADMIN') %}
+											                  			{% if user.role == ('ROLE_USER')  or session.role == ('ROLE_SUPER_ADMIN') %}
 											                  		
 											                  			<a href="{{ path('cleantech_user_edit', {id: user.id}) }}" class="btn btn-sm btn-primary">Editar</a>
 											                  			{%endif%}

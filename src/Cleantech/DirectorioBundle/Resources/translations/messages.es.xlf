@@ -52,11 +52,19 @@
             </trans-unit>
             <trans-unit id="13">
                 <source>R social</source>
-                <target>Razón Social</target>
+                <target>Denominación Social</target>
             </trans-unit>
             <trans-unit id="14">
                 <source>Cp</source>
                 <target>C.P.</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>Web</source>
+                <target>Sitio web</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>Nombre mensaje</source>
+                <target>Nombre de aviso</target>
             </trans-unit>
         </body>
     </file>

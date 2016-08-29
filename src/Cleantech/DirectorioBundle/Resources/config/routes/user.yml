@@ -56,3 +56,23 @@ cleantech_user_delete:
 cleantech_user_deletelogical:
     path:   /deletelogical/{id}
     defaults: { _controller: CleantechDirectorioBundle:User:deleteLogical }
+
+#buscar user
+cleantech_user_buscar_usuario:
+    path:   /buscar_usuario
+    defaults: { _controller: CleantechDirectorioBundle:User:buscarUsuario }
+
+
+cleantech_user_edit_perfil:
+    path:   /perfil/edit/
+    defaults: { _controller: CleantechDirectorioBundle:User:editPerfil }
+    
+cleantech_user_update_perfil:
+    path:   /perfil/update/
+    defaults: { _controller: CleantechDirectorioBundle:User:updatePerfil }
+    methods: [POST, PUT]
+
+cleantech_user_manual_admin:
+    path:   /perfil/manual/admin
+    defaults: { _controller: CleantechDirectorioBundle:User:Manual }
+    

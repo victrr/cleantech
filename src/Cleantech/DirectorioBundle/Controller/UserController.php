@@ -11,6 +11,7 @@ use Cleantech\DirectorioBundle\Entity\User;
 use Cleantech\DirectorioBundle\Form\UserType;
 use Cleantech\DirectorioBundle\Form\UserAdminType;
 use Cleantech\DirectorioBundle\Form\UserSuperAdminType;
+use Cleantech\DirectorioBundle\Form\DatoType;
 
 
 class UserController extends Controller
@@ -276,7 +277,7 @@ class UserController extends Controller
         {
             $em->remove($user);
             $em->flush();
-            
+            $this->addFlash('success','Se ha eliminado el usuario correctamente y su empresa asociada');
             return $this->redirectToRoute('cleantech_user_usuarios');
         }
     }
@@ -315,5 +316,164 @@ class UserController extends Controller
         
     }
     
+    
+    public function buscarUsuarioAction(Request $request)
+    {
+        
+      
+        if  ( !$this -> get ( 'security.authorization_checker' ) -> isGranted ( 'IS_AUTHENTICATED_FULLY' ))  
+        { 
+            throw  $this -> createAccessDeniedException (); 
+        }
+
+        $sessions =  $this -> getUser ();
+        
+        
+        $em = $this->getDoctrine()->getManager();
+        $session = $em->getRepository('CleantechDirectorioBundle:User')->findOneById($sessions);
+        $user = $em->getRepository('CleantechDirectorioBundle:User');
+        if($request->getMethod()=="POST")
+        {
+            $buscar = $request->get("buscar");
+            $send = $request->get("send");
+            
+            if($buscar)
+            {
+            $query = $user->createQueryBuilder('e')
+                    ->where('e.email like :nombre')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('nombre', '%'.$buscar.'%')
+                    ->getQuery();
+                $users = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $users, $request->query->getInt('page',1),
+            5
+            
+            
+        );
+    
+        
+        
+               
+                    return $this->render('CleantechDirectorioBundle:User:users.html.twig', array('users' => $pagination, 'session' => $session));
+            
+            }
+            
+            else if($send)
+            {
+
+        
+        return $this->redirectToRoute('cleantech_user_usuarios');
+            }
+            
+            
+        }
+        
+       
+    }
+    
+    
+    
+    
+    
+    public function editPerfilAction()
+    {
+        if  ( !$this -> get ( 'security.authorization_checker' ) -> isGranted ( 'IS_AUTHENTICATED_FULLY' ))  
+        { 
+            throw  $this -> createAccessDeniedException (); 
+        }
+
+        $user =  $this -> getUser ();
+        
+        $em = $this->getDoctrine()->getManager();
+        $datos = $em->getRepository('CleantechDirectorioBundle:User')->find($user);
+       
+        if(!$datos)
+        {
+            throw $this->createNotFoundException('User Not Found');
+        }
+       
+        $form = $this->createdEditPerfilForm($datos);
+       
+        return $this->render('CleantechDirectorioBundle:User:perfil.html.twig', array('dato' => $datos, 'form' => $form->createView()));
+        
+    }
+    
+    private function createdEditPerfilForm(User $entity)
+    {
+        if  ( !$this -> get ( 'security.authorization_checker' ) -> isGranted ( 'IS_AUTHENTICATED_FULLY' ))  
+        { 
+            throw  $this -> createAccessDeniedException (); 
+        }
+
+        $user =  $this -> getUser ();
+        
+         $form = $this->createForm(new DatoType(), $entity, array(
+                'action' => $this->generateUrl('cleantech_user_update_perfil',
+                array('id' => $entity->getId())), 
+                'method' => 'PUT'
+            ));
+            
+        return $form;
+    }
+    
+    public function updatePerfilAction(Request $request)
+    {
+        if  ( !$this -> get ( 'security.authorization_checker' ) -> isGranted ( 'IS_AUTHENTICATED_FULLY' ))  
+        { 
+            throw  $this -> createAccessDeniedException (); 
+        }
+
+        $user =  $this -> getUser ();
+        
+        $em = $this->getDoctrine()->getManager();
+        
+        $datos = $em->getRepository('CleantechDirectorioBundle:User')->find($user);
+        
+        if(!$datos)
+        {
+            throw $this->createNotFoundException('User Not Found');
+        }
+        
+        $form = $this->createdEditPerfilForm($datos);
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $password = $form->get('password')->getData();
+            #print_r($password);
+            #exit();
+            if(!empty ($password))
+            {
+                $encoder = $this->container->get('security.password_encoder');
+                $encoded = $encoder->encodePassword($datos, $password);
+                $datos->setPassword($encoded);
+            }
+            else
+            {
+                $recoverPass = $this->recoverPass($user);
+
+                $datos->setPassword($recoverPass[0]['password']);
+            }
+            
+            
+            $datos->setRole($datos->getRole());
+            $datos->setIsActive(1);
+            $em->flush();
+            
+            $this->addFlash('success','Se han actualizado sus datos.');
+            return $this->redirectToRoute('cleantech_user_edit_perfil', array('id' => $datos->getId()));
+        }
+        
+        return $this->render('CleantechDirectorioBundle:User:perfil.html.twig', array('dato' => $datos, 'form' => $form->createView()));   
+    }
+    
+    public function manualAction()
+    {
+       
+        return $this->render('CleantechDirectorioBundle:Directorio:manualAdmin.html.twig');
+    }
     
 }

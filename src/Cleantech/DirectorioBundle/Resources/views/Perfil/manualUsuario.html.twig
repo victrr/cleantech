@@ -1,0 +1,157 @@
+{%extends 'layoutperfil.html.twig'%}
+     
+{% block body %}
+
+	{{ parent()}}
+	
+
+    <!-- Page Content -->
+    <div class="container">
+       
+        <div class="page-content">
+        	<div class="row">
+            <span class="ir-arriba"><i class="glyphicon glyphicon-menu-up"></i></span>
+            <div class="col-md-3">
+                <h4><i class="glyphicon glyphicon-user"></i> Manual para usuarios</h4>
+                <div class="list-group">
+                    <a href="{{path('cleantech_directorio_perfil')}}" class="list-group-item"><i class="glyphicon glyphicon-home"></i> Inicio</a>
+                    <a href="#bEmp" class="list-group-item"><i class="glyphicon glyphicon-search"></i> Busqueda de Empresas</a>
+                    <a href="#confCount" class="list-group-item"><i class="glyphicon glyphicon-cog"></i> Configuración de Cuenta</a>
+                    <a href="#confComp" class="list-group-item"><i class="glyphicon glyphicon-briefcase"></i> Configuración de Empresa</a>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+            <h2><i class="glyphicon glyphicon-flag"></i> Inicio</h2>
+                <div class="thumbnail">
+                    
+                    <div class="caption-full">
+                        <!--<h4 class="pull-right">$24.99</h4>-->
+                        <!--<h4>¿Qué hay en la página principal?</h4>-->
+                        <p>Al ingresar en la sesión se puede observar el formulario de inicio, desde dicho formulario se logran visualizar los siguientes rubros:</p>
+                        <p>1. Buscador de empresas (Todas las empresas registradas dentro de la plataforma aparecen en dicho buscador).</p>
+                        <p>2. Salir de la sesión (Haz clic en el ícono <i class="glyphicon glyphicon-off"></i> localizado en el lado derecho de la barra superior para cerrar tu sesión).</p>
+                        <p>3. Foto de perfil (Para cambiar la foto de perfil se debe acceder a la <a href="#confCount">configuración de la cuenta</a>).</p>
+                        <p>4. Menú de configuración (Cambiar datos personales o de la empresa).</p>
+                        <p>5. Tablero de avisos (Todo tipo de notificaciones por parte de CleantechMX, serán visualizadas en dicha sección).</p>
+                        <p>6. Redes Sociales (Desde el panel de redes sociales podrás seguir a CleantechMX en cualquier momento).</p>
+                        <p>7. Nombre de usuario (permite el acceso a la configuración del perfil).</p>
+                        <img class="img-responsive" src="{{ asset('public/pictures/usr_1.png')}}" alt="">
+                    </div>
+                </div>
+
+                <a name="bEmp"></a>
+                <h2><i class="glyphicon glyphicon-search"></i> Busqueda de Empresas</h2>
+
+                <div class="well">
+
+                    <div class="caption-full">
+                        <p>1. Si al ingresar al formulario búsqueda de empresa no asigna ningún valor de entrada, podrán observar las 10 últimas empresas registradas en el directorio.</p>
+                        
+                        <img class="img-responsive" src="{{ asset('public/pictures/user_1-1.png') }}" alt="">
+                    </div>
+
+                </div>
+
+                <a name="confCount"></a>
+                <h2><i class="glyphicon glyphicon-cog"></i> Configuración de la Cuenta</h2>
+
+                <div class="thumbnail">
+                    
+                    <div class="caption-full">
+                        <!--<h4 class="pull-right">$24.99</h4>-->
+                        <!--<h4>¿Qué hay en la página principal?</h4>-->
+                        <p>Para configurar los datos de perfil se debe ingresar a: <i class="glyphicon glyphicon-cog"></i> Perfil; dentro encontraremos las siguientes opciones:</p>
+                        <img class="img-responsive" src="{{ asset('public/pictures/user_2.png')}}" alt="">
+                        <br>
+                        <p>1. Datos personales (Para cambiar cualquier dato dentro del formulario, basta con sustituir el texto dentro de la caja y presionar el botón guardar).</p>
+                        <img class="img-responsive" src="{{ asset('public/pictures/user_3.png')}}" alt="">
+                        <br>
+                        <p>2. Para cargar una nueva imagen se debe seleccionar la opción: Seleccionar archivo (dicha imagen debe buscarse en la computadora del usuario y dar clic en aceptar).</p>
+                        <p>3. Al presionar el botón guardar, debemos recibir el siguiente mensaje: Se han actualizado sus datos y de este modo habrá finalizado la configuración de su perfil.</p>
+                        <img class="img-responsive" src="{{ asset('public/pictures/user_3.1.png')}}" alt="">
+                        
+                    </div>
+                </div>
+
+                <a name="confComp"></a>
+                <h2><i class="glyphicon glyphicon-briefcase"></i> Configuración de Empresa</h2>
+
+                <div class="well">
+                    <p>Cuando el usuario es registrado por primera vez en el directorio virtual, se dan de alta datos básicos como: nombre y RFC de dicha empresa, estos datos no podrán ser modificados por el usuario, pero podrá añadir más información como:</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/user_4.png')}}" alt="">
+                    <br>
+                    <p>1. Rama Tecnológica (aquí encontraremos los campos de acción de los conocimientos científicos realizados en forma práctica).</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/user_4.1.png')}}" alt="">
+                    <br>
+                    <p>2. Industria (Aquí se debe especificar el tipo de industria de su empresa).</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/user_4.2.png')}}" alt="">
+                    <br>
+                    <p>3. Servicio (Elijé el conjunto de actividades interrelacionadas que ofrece con el fin de que el cliente obtenga el producto en el momento y lugar adecuado).</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/user_4.3.png')}}">
+                    <br>
+                    <p>4. Denominación Social y Descripción (Estos campos deben ser completados con la información de la empresa).</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/user_4.4.png')}}" alt="">
+                    <br>
+                    <p>5. Sección Dirección (Campos requeridos para la ubicación de la empresa).</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/user_4.5.png')}}" alt="">
+                    <br>
+                    <p>6. Contacto y Redes Sociales (Recuerda estar siempre al día con está información, así tu empresa podrá ser identificada con mayor rapidez).</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/user_4.6.png')}}" alt="">
+                    <br>
+                    <p>9. Logotipo de la empresa (Las dimensiones de tu logotipo no deben superar las siguiente medidas 900x600 px).</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/user_4.7.png')}}" alt="">
+                    <br>
+                    <p>10. Al presionar el botón guardar, debemos recibir el siguiente mensaje: Se han actualizado los datos de su empresa y de este modo habrá finalizado la configuración de su empresa.</p>
+                    <img class="img-responsive" src="{{ asset('public/pictures/user_5.png')}}" alt="">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <!-- /.container -->
+ <div class="container">
+	         <div class="row">
+	           <div class="col-xs-12"> <br ></div>
+	        </div>
+	     </div>
+	<br ><br ><br ><br ><br >
+    <!-- /.container -->
+<footer id="footer" class="site-footer fw-footer fw-footer-logo-retina" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 ">
+                <!---aqui falta contenido---->
+                 <div class="col-xs-4 col-xs-offset-4"> 
+                     © Copyright CleanTechChallengeMX
+                     <br>
+                     
+                </div>
+                
+                <div class="col-lg-12 col-md-offset-1">
+                    <br>
+                    <div class="col-lg-6">
+                       <h4>Contacto</h4>
+                        <h5>Telefóno: 442342323</h5>
+                        <h5>E-mail: GreenMomentum@askas.com</h5>
+                      
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="col-lg-3">
+                        <a href='https://www.facebook.com/CleantechMX/' target="_blank" style="color:white;"><img  src="{{asset('public/pictures/face.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">#CleantechMX</a>
+                        </div>
+                        <div class="col-lg-3">
+                        <a href='https://twitter.com/CleantechMX?ref_src=twsrc%5Etfw' target="_blank" style="color:white;"><img  src="{{asset('public/pictures/twitt.png')}}"  class="img-responsive" alt="Responsive image" style="height:35px; width:35px;">@CleantechMX</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+  
+
+{% endblock %}

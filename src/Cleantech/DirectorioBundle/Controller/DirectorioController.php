@@ -93,6 +93,517 @@ class DirectorioController extends Controller
        
     }
     
+    public function buscarServicioAction(Request $request)
+    {
+        
+        $em = $this->getDoctrine()->getManager();
+        
+        $mensaje = $em->getRepository('CleantechDirectorioBundle:Empresa');//Mensaje es la entidad q contiene los d
+        
+        if($request->getMethod()=="POST")
+        {
+            $domestico = $request->get("dome");
+            $industrial = $request->get("indus");
+            
+            if($domestico)
+            {
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.servicio = :servicio')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('servicio', 'Doméstico')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+               
+                    return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));    
+            
+            }
+            
+            else if($industrial)
+            {
+                
+       
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.servicio = :servicio')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('servicio', 'Industrial')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+        //$deleteFormAjax = $this->createCustomForm(':USER_ID', 'DELETE', 'cleantech_user_delete');
+        
+         return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));  
+            
+            }
+            
+            
+        }
+        
+       
+    }
+    
+    
+    public function buscarIndustriaAction(Request $request)
+    {
+        
+        $em = $this->getDoctrine()->getManager();
+        
+        $mensaje = $em->getRepository('CleantechDirectorioBundle:Empresa');//Mensaje es la entidad q contiene los d
+        
+        if($request->getMethod()=="POST")
+        {
+            $agricultura = $request->get("agri");
+            $captacion = $request->get("capa");
+            $construccion = $request->get("const");
+            $consumo = $request->get("consu");
+            $energia = $request->get("ener");
+            $quimica = $request->get("quim");
+            $transporte = $request->get("trans");
+            
+            if($agricultura)
+            {
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.industria like :industria')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('industria', '%Agricultura%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+               
+                    return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));    
+            
+            }
+            
+            else if($captacion)
+            {
+                
+       
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.industria like :industria')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('industria', '%Captación%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+        //$deleteFormAjax = $this->createCustomForm(':USER_ID', 'DELETE', 'cleantech_user_delete');
+        
+         return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));  
+            
+            }
+            
+            else if($construccion)
+            {
+                
+       
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.industria like :industria')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('industria', '%Construcción%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+        //$deleteFormAjax = $this->createCustomForm(':USER_ID', 'DELETE', 'cleantech_user_delete');
+        
+         return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));  
+            
+            }
+            
+            
+            else if($consumo)
+            {
+                
+       
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.industria like :industria')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('industria', '%Consumo%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+        //$deleteFormAjax = $this->createCustomForm(':USER_ID', 'DELETE', 'cleantech_user_delete');
+        
+         return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));  
+            
+            }
+            
+            else if($energia)
+            {
+                
+       
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.industria like :industria')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('industria', '%Energía%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+        //$deleteFormAjax = $this->createCustomForm(':USER_ID', 'DELETE', 'cleantech_user_delete');
+        
+         return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));  
+            
+            }
+            
+            else if($quimica)
+            {
+                
+       
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.industria like :industria')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('industria', '%Química%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+        //$deleteFormAjax = $this->createCustomForm(':USER_ID', 'DELETE', 'cleantech_user_delete');
+        
+         return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));  
+            
+            }
+            
+            else if($transporte)
+            {
+                
+       
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.industria like :industria')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('industria', '%Transportes%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+        //$deleteFormAjax = $this->createCustomForm(':USER_ID', 'DELETE', 'cleantech_user_delete');
+        
+         return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));  
+            
+            }
+            
+            
+        }
+        
+       
+    }
+    
+    
+    public function buscarAreaAction(Request $request)
+    {
+        
+        $em = $this->getDoctrine()->getManager();
+        
+        $mensaje = $em->getRepository('CleantechDirectorioBundle:Empresa');//Mensaje es la entidad q contiene los d
+        
+        if($request->getMethod()=="POST")
+        {
+            $ag = $request->get("ag");
+            $cr = $request->get("cr");
+            $cm = $request->get("cm");
+            $cs = $request->get("cs");
+            $cv = $request->get("cv");
+            $ee = $request->get("ee");
+            $ge = $request->get("ge");
+            $mc = $request->get("mc");
+            $rs = $request->get("rs");
+            $ti = $request->get("ti");
+            
+            if($ag)
+            {
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.ramaTecnologica like :rama_tecno')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('rama_tecno', '%Agua%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+               
+                    return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));    
+            
+            }
+            
+            
+            if($cr)
+            {
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.ramaTecnologica like :rama_tecno')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('rama_tecno', '%Captura%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+               
+                    return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));    
+            
+            }
+            
+            if($cm)
+            {
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.ramaTecnologica like :rama_tecno')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('rama_tecno', '%Combustibles%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+               
+                    return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));    
+            
+            }
+            
+            
+            if($cs)
+            {
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.ramaTecnologica like :rama_tecno')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('rama_tecno', '%Conservación%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+               
+                    return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));    
+            
+            }
+            
+            if($cv)
+            {
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.ramaTecnologica like :rama_tecno')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('rama_tecno', '%Construcción%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+               
+                    return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));    
+            
+            }
+            
+            if($ee)
+            {
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.ramaTecnologica like :rama_tecno')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('rama_tecno', '%Eficiencia%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+               
+                    return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));    
+            
+            }
+            
+            if($ge)
+            {
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.ramaTecnologica like :rama_tecno')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('rama_tecno', '%Generación%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+               
+                    return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));    
+            
+            }
+            
+            if($mc)
+            {
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.ramaTecnologica like :rama_tecno')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('rama_tecno', '%Materiales%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+               
+                    return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));    
+            
+            }
+            
+            if($rs)
+            {
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.ramaTecnologica like :rama_tecno')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('rama_tecno', '%Residuos%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+               
+                    return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));    
+            
+            }
+            
+            if($ti)
+            {
+            $query = $mensaje->createQueryBuilder('e')
+                    ->where('e.ramaTecnologica like :rama_tecno')
+                    //->where('e.descripcion like :nombre')
+                    ->setParameter('rama_tecno', '%Tecnologías%')
+                    ->getQuery();
+                $datos = $query->getResult();
+                
+                 $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $datos, $request->query->getInt('page',1),
+            3
+            
+            
+        );
+        
+               
+                    return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig', array('pagination' => $pagination));    
+            
+            }
+        }
+        
+       
+    }
+    
+    
+    
     public function directorioVacioAction()
     {
         return $this->render('CleantechDirectorioBundle:Directorio:directorio.html.twig');
@@ -1072,9 +1583,7 @@ class DirectorioController extends Controller
         }
         
     }
-    
-    
-    
+
     
 
 }

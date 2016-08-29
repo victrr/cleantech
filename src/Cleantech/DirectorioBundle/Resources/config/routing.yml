@@ -6,6 +6,12 @@ cleantech_directorio_index:
     path:   /index
     defaults: { _controller: CleantechDirectorioBundle:Home:index }
     
+
+cleantech_directorio_busqueda_letra:
+    path:   /index/busqueda
+    defaults: { _controller: CleantechDirectorioBundle:Home:buscadorLetra }
+
+    
 #Este sera para el buscador general
 cleantech_directorio_directorio:
     path:   /directorio
@@ -40,6 +46,22 @@ cleantech_directorio_buscarLetra:
 cleantech_directorio_buscarEstado:
     path:   /estado
     defaults: { _controller: CleantechDirectorioBundle:Directorio:buscarEstado }
+
+#inicia la busqueda servicio
+cleantech_directorio_buscarServicio:
+    path:   /servicio
+    defaults: { _controller: CleantechDirectorioBundle:Directorio:buscarServicio }
+    
+#inicia la busqueda servicio
+cleantech_directorio_buscarIndustria:
+    path:   /industria
+    defaults: { _controller: CleantechDirectorioBundle:Directorio:buscarIndustria }
+
+#inicia la busqueda servicio
+cleantech_directorio_buscarArea:
+    path:   /area
+    defaults: { _controller: CleantechDirectorioBundle:Directorio:buscarArea }
+
 
 #este maneja el metodo post del login    
 cleantech_directorio_login:
@@ -102,3 +124,4 @@ cleantech_perfil_perfil:
 cleantech_mensaje_mensaje:
     resource:   "@CleantechDirectorioBundle/Resources/config/routes/mensaje.yml"
     prefix: /mensaje
+

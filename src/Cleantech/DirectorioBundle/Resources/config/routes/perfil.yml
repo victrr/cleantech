@@ -39,6 +39,11 @@ cleantech_perfil_empresa_update:
 cleantech_perfil_busqueda:
     path:   /perfil/busqueda/
     defaults: { _controller: CleantechDirectorioBundle:Perfil:buscadorGeneral }
+
+
+cleantech_perfil_manual_usuario:
+    path:   /perfil/manual/
+    defaults: { _controller: CleantechDirectorioBundle:Perfil:Manual }
     
 #cleantech_empresa_delete:
 #    path:   /empresa/delete/{id}

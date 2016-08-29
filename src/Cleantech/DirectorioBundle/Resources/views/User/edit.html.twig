@@ -14,7 +14,7 @@
             <div class="col-md-2">
     		  	<div class="sidebar content-box" style="display: block;">
     		  	    <div class="thumbnail">
-                        <img src="{{asset('public/pictures/logo.png')}}" alt="..." class="img-rounded">
+                         <img src="{{asset('public/pictures/cleantechChallenge.png')}}" alt="..." class="img-rounded">
                     </div>
                     <!--<h3>{#{app.session.get('firstName')}#}</h3>--->
                     <ul class="nav">
@@ -48,6 +48,19 @@
                                 <li><a href="{{path('cleantech_empresa_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Empresa</a></li>
                             </ul>
                         </li>
+                        
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-envelope"></i> Avisos
+                                <span class="caret pull-right"></span>
+                            </a>
+                             <!--- Sub menu--->
+                            <ul>
+                                <li><a href="{{path('cleantech_mensaje_mensajes')}}"><i class="glyphicon glyphicon-list-alt"></i> Avisos</a></li>
+                                <li><a href="{{path('cleantech_mensaje_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Aviso</a></li>
+                            </ul>
+                        </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -128,14 +141,9 @@
 											  			<div class="col-sm-2 control-label">
 												    		{{form_label(form.password) }}
 												    	</div>
-												    	<div class="col-sm-4">
+												    	<div class="col-sm-8">
 												    		{{form_widget(form.password, {'attr' : {'class' : 'form-control', 'placeholder' : '**********' } }) }}
 												    	</div>
-												    	<div class="col-sm-4">
-												    		<h5><span class="label label-danger">¡ATENCIÓN! Editar con una peticón de cambio</span></h5>
-												    		<span class="text-danger">{{ form_errors(form.password) }}</span>
-												    	</div>	
-												    	
 												  	</div>
 											  	
 											  	
@@ -178,7 +186,11 @@
         <div class="container">
             <div class="copy text-center">
                CLEANTECH CHALLENGUE <a href='#'>Website</a>
+               <br>
+               <img src="{{asset('public/pictures/logoFbk.png')}}"><a href='https://www.facebook.com/CleantechMX/' target="_blank">@CleantechMX</a>
+               <img src="{{asset('public/pictures/twitter-ico.png')}}"><a href='https://twitter.com/CleantechMX?ref_src=twsrc%5Etfw' target="_blank">#CleantechMX</a>
             </div>
+            
         </div>
     </footer>
 

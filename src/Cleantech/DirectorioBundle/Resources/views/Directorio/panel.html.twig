@@ -14,7 +14,7 @@
             <div class="col-md-2">
     		  	<div class="sidebar content-box" style="display: block;">
     		  	    <div class="thumbnail">
-                        <img src="{{asset('public/pictures/logo.png')}}" alt="..." class="img-rounded">
+                        <img src="{{asset('public/pictures/cleantechChallenge.png')}}" alt="..." class="img-rounded">
                     </div>
                     <!--<h3>{#{app.session.get('firstName')}#}</h3>--->
                     <ul class="nav">
@@ -51,13 +51,13 @@
                         
                         <li class="submenu">
                             <a href="#">
-                                <i class="glyphicon glyphicon-envelope"></i> Mensajes
+                                <i class="glyphicon glyphicon-envelope"></i> Avisos
                                 <span class="caret pull-right"></span>
                             </a>
                              <!--- Sub menu--->
                             <ul>
-                                <li><a href="{{path('cleantech_mensaje_mensajes')}}"><i class="glyphicon glyphicon-list-alt"></i> Mensajes</a></li>
-                                <li><a href="{{path('cleantech_mensaje_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Mensaje</a></li>
+                                <li><a href="{{path('cleantech_mensaje_mensajes')}}"><i class="glyphicon glyphicon-list-alt"></i> Avisos</a></li>
+                                <li><a href="{{path('cleantech_mensaje_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Aviso</a></li>
                             </ul>
                         </li>
                         
@@ -73,7 +73,7 @@
     				<div class="row">
                       <div class="col-sm-5 col-md-4">
                         <div class="thumbnail">
-                          <img src="{{asset('public/pictures/user.png')}}" alt="..." class="img-rounded" style="height: 200px; width: 200px;">
+                          <img src="{{asset('public/pictures/user.png')}}" alt="..." class="imagenLogo img-rounded">
                           <div class="caption">
                             <h3 class="text-center">Total de usuarios: {{datou}}</h3>
                             
@@ -83,7 +83,7 @@
                       </div>
                       <div class="col-sm-5 col-md-4">
                         <div class="thumbnail">
-                          <img src="{{asset('public/pictures/empresa.png')}}" alt="..." class="img-rounded" style="height: 200px; width: 200px;">
+                          <img src="{{asset('public/pictures/empresa.png')}}" alt="..." class="imagenLogo img-rounded">
                           <div class="caption">
                             <h3 class="text-center">Total de empresas: {{datoe}}</h3>
                             
@@ -94,7 +94,7 @@
                       
                       <div class="col-sm-5 col-md-4">
                         <div class="thumbnail">
-                          <img src="{{asset('public/pictures/message.png')}}" alt="..." class="img-rounded" style="height: 200px; width: 200px;">
+                          <img src="{{asset('public/pictures/message.png')}}" alt="..." class="imagenLogo img-rounded">
                           <div class="caption">
                             <h3 class="text-center">Total de Avisos: {{datom}}</h3>
                             
@@ -102,7 +102,7 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+            </div>
                     
                      <div class="row">
                       <div class="col-sm-5 col-md-4">
@@ -139,7 +139,7 @@
                             <h3 class="text-center">Avisos agregadas recientemente </h3>
                             <hr>
                             {%for dato in datome%}
-                            <h5 >{{dato.nombre}} </h5>
+                            <h5 >{{dato.nombreMensaje}} </h5>
                             {%endfor%}
                             
                           </div>
@@ -147,7 +147,13 @@
                       </div>
                       
                       
-                      <div class="col-sm-5 col-md-4">
+                      
+                      
+                      
+                      
+                    </div> 
+                     <div class="row">
+                    <div class="col-sm-5 col-md-4">
                         <div class="thumbnail">
                           
                           <div class="caption">
@@ -161,12 +167,7 @@
                           </div>
                         </div>
                       </div>
-                      
-                      
-                      
-                    </div> 
-                    
-                    
+                    </div>
     				
     		  	</div>
             </div>

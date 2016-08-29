@@ -40,7 +40,7 @@ class Empresa
     /**
      * @var string
      *
-     * @ORM\Column(name="rama_tecnologica", type="string", length=100)
+     * @ORM\Column(name="rama_tecnologica", type="string")
      */
     private $ramaTecnologica;
 
@@ -54,21 +54,21 @@ class Empresa
     /**
      * @var string
      *
-     * @ORM\Column(name="calle", type="string", length=255, nullable=true)
+     * @ORM\Column(name="calle", type="string", length=255)
      */
     private $calle;
     
     /**
      * @var string
      *
-     * @ORM\Column(name="colonia", type="string", length=255, nullable=true)
+     * @ORM\Column(name="colonia", type="string", length=255)
      */
     private $colonia;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="rfc", type="string", length=200, nullable=true)
+     * @ORM\Column(name="rfc", type="string", length=200)
      */
     private $rfc;
 
@@ -82,7 +82,7 @@ class Empresa
     /**
      * @var string
      *
-     * @ORM\Column(name="municipio", type="string", length=250, nullable=true)
+     * @ORM\Column(name="municipio", type="string", length=250)
      */
     private $municipio;
 
@@ -117,7 +117,7 @@ class Empresa
     /**
      * @var string
      *
-     * @ORM\Column(name="razon_social", type="string", length=250, nullable=true)
+     * @ORM\Column(name="razon_social", type="string", length=250)
      */
     private $rSocial;
     
@@ -125,26 +125,34 @@ class Empresa
     /**
      * @var string
      *
-     * @ORM\Column(name="facebook", type="string", length=250, nullable=true)
+     * @ORM\Column(name="facebook", type="string", length=250)
      */
     private $facebook;
     
     /**
      * @var string
      *
-     * @ORM\Column(name="linkedin", type="string", length=250, nullable=true)
+     * @ORM\Column(name="linkedin", type="string", length=250)
      */
     private $linkedin;
     
     /**
      * @var string
      *
-     * @ORM\Column(name="twitter", type="string", length=250, nullable=true)
+     * @ORM\Column(name="twitter", type="string", length=250)
      */
     private $twitter;
     
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="web", type="string", length=250)
+     */
+    private $web;
     
-//354164684
+    
+    
+    //354164684
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -437,6 +445,29 @@ class Empresa
         return $this->twitter;
     }
     
+    /**
+     * Set web
+     *
+     * @param string $web
+     * @return Empresa
+     */
+    public function setWeb($web)
+    {
+        $this->web = $web;
+
+        return $this;
+    }
+
+    /**
+     * Get web
+     *
+     * @return string 
+     */
+    public function getWeb()
+    {
+        return $this->web;
+    }
+    
     
 
     /**
@@ -669,7 +700,7 @@ class Empresa
     {
         // get rid of the __DIR__ so it doesn't screw up
         // when displaying uploaded doc/image in the view.
-        return 'uploads/films';
+        return 'uploads/empresas';
     }
     
     /**
@@ -680,6 +711,14 @@ class Empresa
     public function setFile(UploadedFile $file = null)
     {
         $this->file = $file;
+        // check if we have an old image path
+        if (isset($this->path)) {
+            // store the old name to delete after the update
+            $this->temp = $this->path;
+            $this->path = null;
+        } else {
+            $this->path = 'initial';
+        }
     }
 
     /**
@@ -693,27 +732,52 @@ class Empresa
     }
     
     
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        if (null !== $this->getFile()) {
+            // haz lo que quieras para generar un nombre único
+            $filename = sha1(uniqid(mt_rand(), true));
+            $this->path = $filename.'.'.$this->getFile()->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
     public function upload()
     {
-        // the file property can be empty if the field is not required
         if (null === $this->getFile()) {
             return;
         }
-    
-        // use the original file name here but you should
-        // sanitize it at least to avoid any security issues
-    
-        // move takes the target directory and then the
-        // target filename to move to
-        $this->getFile()->move(
-            $this->getUploadRootDir(),
-            $this->getFile()->getClientOriginalName()
-        );
-    
-        // set the path property to the filename where you've saved the file
-        $this->path = $this->getFile()->getClientOriginalName();
-    
-        // clean up the file property as you won't need it anymore
+
+        // si hay un error al mover el archivo, move() automáticamente
+        // envía una excepción. This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->getFile()->move($this->getUploadRootDir(), $this->path);
+
+        // check if we have an old image
+        if (isset($this->temp)) {
+            // delete the old image
+            unlink($this->getUploadRootDir().'/'.$this->temp);
+            // clear the temp image path
+            $this->temp = null;
+        }
         $this->file = null;
+    }
+
+    
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        if ($file = $this->getAbsolutePath()) {
+            unlink($file);
+        }
     }
 }

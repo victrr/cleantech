@@ -14,7 +14,7 @@
             <div class="col-md-2">
     		  	<div class="sidebar content-box" style="display: block;">
     		  	    <div class="thumbnail">
-                        <img src="{{asset('public/pictures/logo.png')}}" alt="..." class="img-rounded">
+                         <img src="{{asset('public/pictures/cleantechChallenge.png')}}" alt="..." class="img-rounded">
                     </div>
                     <!--<h3>{#{app.session.get('firstName')}#}</h3>--->
                     <ul class="nav">
@@ -48,6 +48,19 @@
                                 <li><a href="{{path('cleantech_empresa_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Empresa</a></li>
                             </ul>
                         </li>
+                        
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-envelope"></i> Avisos
+                                <span class="caret pull-right"></span>
+                            </a>
+                             <!--- Sub menu--->
+                            <ul>
+                                <li><a href="{{path('cleantech_mensaje_mensajes')}}"><i class="glyphicon glyphicon-list-alt"></i> Avisos</a></li>
+                                <li><a href="{{path('cleantech_mensaje_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Aviso</a></li>
+                            </ul>
+                        </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -76,13 +89,13 @@
 											<div class="content-box-large">
 												<div class="row">
 													<div class="col-xs-6 col-md-3">
-														<a href="#" class="thumbnail">
+														<div class="thumbnail">
 															{% if empresa.path == false %}
 															<img src="{{asset('public/pictures/empresanull.png')}}" >
 															{% elseif empresa.path !=false %}
-															<img src="{{ asset('uploads/films/'~empresa.path) }}">
+															<img src="{{ asset('uploads/empresas/'~empresa.path) }}">
 															{%endif%}
-														</a>
+														</div>
 													</div>
 												</div>
 								  				<div class="panel-body">
@@ -163,7 +176,7 @@
 											                <div class="row">
 											                <div class="form-group">
 												             	<div class="col-sm-4 control-label">
-												                	<dt>Razón Social</dt>
+												                	<dt>Denominación Social</dt>
 												                </div>
 												                <div class="col-sm-3">
 													                <dd>
@@ -347,9 +360,7 @@
 														<h5><strong>Acciones</strong></h5>
 											        <!--<a href="" >Ver</a>-->
 											        	<a href="{{ path('cleantech_empresa_edit', {id: empresa.id}) }}" class="btn btn-lg btn-block btn-primary"><i class="glyphicon glyphicon-edit"></i> Editar</a>
-											           	<p>
-											            	{{include('CleantechDirectorioBundle:Empresa:forms/form.html.twig', {form: delete_form, message: 'Estas seguro?'} )}}
-											            </p>
+											           	
 											    	</div>           	
 								  				</div>
 								  			</div>

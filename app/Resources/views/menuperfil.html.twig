@@ -15,9 +15,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <div class="navbar-header">
-              <img src="{{ asset('public/pictures/new.png') }}" style="height:50px; widht: 50px;">
+                          <img src="{{ asset('public/pictures/new.png') }}" style="height:50px; widht: 50px;">
       
-    </div>
+                    </div>
 
                     
                   
@@ -36,9 +36,16 @@
                     <li>
                         <a href="{{ path('cleantech_perfil_edit') }}">{{app.user.firstName}} {{app.user.lastName}}</a>
                     </li>
+                    
                     <li>
-                        <a href="{{path('cleantech_directorio_logout')}}"><i class="glyphicon glyphicon-off"></i></a>
+                        <a href="{{path('cleantech_perfil_manual_usuario')}}" data-toggle="tooltip" data-placement="left" title="Manual"><i class="glyphicon glyphicon-book"></i></a>
                     </li>
+                    
+                    <li>
+                        <a href="{{path('cleantech_directorio_logout')}}" data-toggle="tooltip" data-placement="left" title="Cerrar sesión"><i class="glyphicon glyphicon-log-out" ></i></a>
+                    </li>
+                    
+                    
                     
                 </ul>
                 

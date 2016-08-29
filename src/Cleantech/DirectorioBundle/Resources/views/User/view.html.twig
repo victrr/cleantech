@@ -14,7 +14,7 @@
             <div class="col-md-2">
     		  	<div class="sidebar content-box" style="display: block;">
     		  	    <div class="thumbnail">
-                        <img src="{{asset('public/pictures/logo.png')}}" alt="..." class="img-rounded">
+                         <img src="{{asset('public/pictures/cleantechChallenge.png')}}" alt="..." class="img-rounded">
                     </div>
                     <!--<h3>{#{app.session.get('firstName')}#}</h3>--->
                     <ul class="nav">
@@ -48,6 +48,19 @@
                                 <li><a href="{{path('cleantech_empresa_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Empresa</a></li>
                             </ul>
                         </li>
+                        
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-envelope"></i> Avisos
+                                <span class="caret pull-right"></span>
+                            </a>
+                             <!--- Sub menu--->
+                            <ul>
+                                <li><a href="{{path('cleantech_mensaje_mensajes')}}"><i class="glyphicon glyphicon-list-alt"></i> Avisos</a></li>
+                                <li><a href="{{path('cleantech_mensaje_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Aviso</a></li>
+                            </ul>
+                        </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -76,16 +89,14 @@
 											<div class="content-box-large">
 												<div class="row">
 													<div class="col-xs-6 col-md-3">
-														<a href="#" class="thumbnail">
+														<div class="thumbnail">
 															{% if user.path == false%}
 															<img src="{{ asset('public/pictures/usernull.png') }}">
 															{% elseif user.path != false%}
 															<img src="{{ asset('uploads/users/'~user.path) }}">
 															{%endif%}
-																
-														</a>
+														</div>
 													</div>
-												</div>
 												<!---
 								  				<div class="panel-heading">
 													<div class="panel-title"><strong><h3>{{user.firstName}} {{user.lastName}}</h3></strong></div>
@@ -192,7 +203,7 @@
 											        
 											        	<a href="{{ path('cleantech_user_edit', {id: user.id}) }}" class="btn btn-lg btn-block btn-primary"><i class="glyphicon glyphicon-edit"></i> Editar</a>
 											            <p>
-											            	{{include('CleantechDirectorioBundle:User:forms/form.html.twig', {form: delete_form, message: 'Estas seguro?'} )}}
+											            	{{include('CleantechDirectorioBundle:User:forms/form.html.twig', {form: delete_form, message: '¿Estas seguro que deseas eliminar permanentemente este usuario?'} )}}
 											            </p>
 											        {%endif%}
 											    	</div>           	

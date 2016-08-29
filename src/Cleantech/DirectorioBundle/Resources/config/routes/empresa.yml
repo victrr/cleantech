@@ -32,3 +32,9 @@ cleantech_empresa_delete:
     path:   /empresa/delete/{id}
     defaults: { _controller: CleantechDirectorioBundle:Empresa:delete }
     methods: [POST, DELETE]
+    
+
+
+cleantech_empresa_buscar_empresa:
+    path:   /buscar_empresa
+    defaults: { _controller: CleantechDirectorioBundle:Empresa:buscarEmpresa }

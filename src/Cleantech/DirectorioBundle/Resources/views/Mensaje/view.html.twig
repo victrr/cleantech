@@ -1,0 +1,199 @@
+{%extends 'layoutpanel.html.twig'%}
+     
+{% block body %}
+	<div class="header">
+	     <div class="container">
+	         <div class="row">
+	        </div>
+	     </div>
+	</div>
+    {{ parent()}}
+
+    <div class="page-content">
+    	<div class="row">
+            <div class="col-md-2">
+    		  	<div class="sidebar content-box" style="display: block;">
+    		  	    <div class="thumbnail">
+                         <img src="{{asset('public/pictures/cleantechChallenge.png')}}" alt="..." class="img-rounded">
+                    </div>
+                    <!--<h3>{#{app.session.get('firstName')}#}</h3>--->
+                    <ul class="nav">
+                        <!-- Main menu -->
+                        <li>
+                            <a href="{{path('cleantech_directorio_perfil')}}">
+                                <i class="glyphicon glyphicon-home"></i> Inicio
+                                <span class="pull-right"></span>
+                             </a>
+                        </li>
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-user"></i> Usuarios
+                                <span class="caret pull-right"></span>
+                            </a>
+                             <!--- Sub menu--->
+                            <ul>
+                                <li><a href="{{path('cleantech_user_usuarios')}}"><i class="glyphicon glyphicon-list-alt"></i> Usuarios</a></li>
+                                <li><a href="{{path('cleantech_user_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Usuario</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="submenu">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-leaf"></i> Empresas
+                                <span class="caret pull-right"></span>
+                            </a>
+                             <!--- Sub menu--->
+                            <ul>
+                                <li><a href="{{path('cleantech_empresa_empresas')}}"><i class="glyphicon glyphicon-list-alt"></i> Empresas</a></li>
+                                <li><a href="{{path('cleantech_empresa_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Empresa</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="submenu actives">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-envelope"></i> Avisos
+                                <span class="caret pull-right"></span>
+                            </a>
+                             <!--- Sub menu--->
+                            <ul>
+                                <li><a href="{{path('cleantech_mensaje_mensajes')}}"><i class="glyphicon glyphicon-list-alt"></i> Avisos</a></li>
+                                <li><a href="{{path('cleantech_mensaje_add')}}"><i class="glyphicon glyphicon-plus"></i> Añadir Avisos</a></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+			<div class="col-md-10">
+		  		<div class="row">
+					<div class="col-md-12">
+						<div class="content-box-large">
+			  				<!--<div class="panel-heading">
+								<div class="panel-title "><h1><span class="label label-primary">Usuarios</span></h1></div>
+							</div>
+		  					--->
+		  					<div class="panel-body">
+		  						<div id="rootwizard">
+									<div class="navbar">
+										<div class="navbar-inner">
+											<ol class="breadcrumb">
+												<li><a href="{{path('cleantech_directorio_perfil')}}">Inicio</a></li>
+												<li><a href="{{path('cleantech_mensaje_mensajes')}}">Avisos</a></li>
+												<li class="active">{{ mensaje.nombreMensaje}}</li>
+											</ol>										
+										 </div>
+									</div>
+								
+									<div class="tab-content">
+								    	<div class="tab-pane active">
+											<div class="content-box-large">
+												<div class="row">
+												</div>
+								  				<div class="panel-body">
+								  					<div class="col-md-7">
+											        	<dl>
+											        		<div class="row">
+											        			<div class="form-group">
+												        			<div class="col-sm-4 control-label">
+												            			<dt>Aviso: </dt>
+												            		</div>
+												       
+												                	<div class="col-sm-3">
+													                	<dd>
+													                		{{ mensaje.nombreMensaje }}
+													                	</dd>
+												                	</div>
+											             		</div>
+											             	</div>
+											             	<br />
+											             	
+											             	<div class="row">
+											        			<div class="form-group">
+												        			<div class="col-sm-4 control-label">
+												            			<dt>descripcion: </dt>
+												            		</div>
+												       
+												                	<div class="col-sm-6">
+													                	<dd>
+													                		{{ mensaje.descripcion }}
+													                	</dd>
+												                	</div>
+											             		</div>
+											             	</div>
+											             	<br />
+											             	
+											             	<div class="row">
+											        			<div class="form-group">
+												        			<div class="col-sm-4 control-label">
+												            			<dt>Creado por: </dt>
+												            		</div>
+												       
+												                	<div class="col-sm-6">
+													                	<dd>
+													                		{{ mensaje.user.fullName }}
+													                	</dd>
+												                	</div>
+											             		</div>
+											             	</div>
+											             	<br />
+											                
+											                <div class="row">
+											                <div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Created</dt>
+												             	</div>
+												                <div class="col-md-3 container">
+													                <dd>
+													                	{{ mensaje.createdAt|date('d-m-Y H:i') }}
+													                </dd>
+												                </div>
+											                </div>
+											               	</div>
+											               	<br />
+											               	
+											               	<div class="row">
+											             	<div class="form-group">
+												             	<div class="col-sm-4 control-label">
+												                	<dt>Updated</dt>
+												        		</div>
+												                <div class="col-sm-3 container">
+													                <td>
+													                	{{ mensaje.updatedAt|date('d-m-Y H:i') }}
+													                </dd>
+												                </div>
+											                </div>
+															</div>
+											        	</dl>
+													</div>
+													
+													<div class="col-md-3">
+														<h5><strong>Acciones</strong></h5>
+											        <!--<a href="" >Ver</a>-->
+											        	<a href="{{ path('cleantech_mensaje_edit', {id: mensaje.id}) }}" class="btn btn-lg btn-block btn-primary"><i class="glyphicon glyphicon-edit"></i> Editar</a>
+											           	<p>
+											            	{{include('CleantechDirectorioBundle:Mensaje:forms/form.html.twig', {form: delete_form, message: '¿Estas seguro que deseas eliminar permanentemente este aviso?'} )}}
+											            </p>
+											    	</div>           	
+								  				</div>
+								  			</div>
+							  			</div>
+								    </div>
+								</div>	
+							</div>
+		  				</div>
+		  			</div>
+				</div>
+			</div>
+		</div>
+		<br /><br /><br />
+	</div>
+
+    <footer>
+        <div class="container">
+            <div class="copy text-center">
+               CLEANTECH CHALLENGUE <a href='#'>Website</a>
+            </div>
+        </div>
+    </footer>
+
+{% endblock %}

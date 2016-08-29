@@ -21,6 +21,12 @@ class PerfilController extends Controller
        
         return $this->render('CleantechDirectorioBundle:Directorio:perfil.html.twig');
     }
+    
+    public function manualAction()
+    {
+       
+        return $this->render('CleantechDirectorioBundle:Perfil:manualUsuario.html.twig');
+    }
 
     public function viewAction()
     {
@@ -111,8 +117,7 @@ class PerfilController extends Controller
         if($form->isSubmitted() && $form->isValid())
         {
             $password = $form->get('password')->getData();
-            #print_r($password);
-            #exit();
+           
             if(!empty ($password))
             {
                 $encoder = $this->container->get('security.password_encoder');
@@ -121,38 +126,33 @@ class PerfilController extends Controller
             }
             else
             {
-                $recoverPass = $this->recoverPass($user);
+                $recoverPass = $this->recoverPass($datos);
                 $datos->setPassword($recoverPass[0]['password']);
             }
             
-            $datos->upload();
-            $datos->setRole('ROLE_USER');
+  
+            $datos->setRole($datos->getRole());
             $datos->setIsActive(1);
             $em->flush();
             
-            $this->addFlash('success','Se han actualizados sus datos.');
+            $this->addFlash('success','Se han actualizado sus datos.');
             return $this->redirectToRoute('cleantech_perfil_edit', array('id' => $datos->getId()));
         }
         
         return $this->render('CleantechDirectorioBundle:Perfil:configuracion.html.twig', array('dato' => $datos, 'form' => $form->createView()));   
     }
     
-    private function recoverPass()
+    private function recoverPass($id)
     {
-        if  ( !$this -> get ( 'security.authorization_checker' ) -> isGranted ( 'IS_AUTHENTICATED_FULLY' ))  
-        { 
-            throw  $this -> createAccessDeniedException (); 
-        }
-
-        $user =  $this -> getUser ();
+        
         
         $em = $this->getDoctrine()->getManager();
         //$dato = $em->getRepository('CleantechDirectorioBundle:User')->find($user);
         $query = $em->createQuery(
             'SELECT u.password
             FROM CleantechDirectorioBundle:User u
-            WHERE u.username = :id'
-        )->setParameter('id', $user->getUsername());
+            WHERE u.id = :id'
+        )->setParameter('id', $id);
         
         $currentPass = $query->getResult();
         #print_r($currentPass);
@@ -215,7 +215,7 @@ class PerfilController extends Controller
         
         if($form->isSubmitted() and $form->isValid())
         {
-            $empresa->upload();
+            
             $empresa->setUser($empresa->getUser());
             $em->flush();
             $this->addFlash('success','Se han actualizados los datos de su empresa.');
@@ -228,8 +228,8 @@ class PerfilController extends Controller
     public function buscadorGeneralAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $mensaje = $em->getRepository('CleantechDirectorioBundle:Empresa');//Mensaje es la entidad q contiene los d
-        
+        $empresa = $em->getRepository('CleantechDirectorioBundle:Empresa');//Mensaje es la entidad q contiene los d
+       
         if($request->getMethod()=="POST")
         {
             $buscar = $request->get("buscar");
@@ -237,14 +237,14 @@ class PerfilController extends Controller
             
             if($buscar)
             {
-            $query = $mensaje->createQueryBuilder('e')
+            $query = $empresa->createQueryBuilder('e')
                     ->where('e.nombre like :nombre')
                     //->where('e.descripcion like :nombre')
                     ->setParameter('nombre', '%'.$buscar.'%')
                     ->getQuery();
                 $datos = $query->getResult();
                
-                    return $this->render('CleantechDirectorioBundle:Perfil:users.html.twig', array('user' => $datos));    
+                    return $this->render('CleantechDirectorioBundle:Perfil:empresas.html.twig', array('empresa' => $datos));    
             
             }
             
@@ -252,13 +252,21 @@ class PerfilController extends Controller
             {
                 
        
-            $datos = $em->getRepository('CleantechDirectorioBundle:User')->findAll();
+            $datos = $em->getRepository('CleantechDirectorioBundle:Empresa')->findAll();
+            
        
+            $paginator = $this->get('knp_paginator');
+            $pagination = $paginator->paginate(
+                $datos, $request->query->getInt('page',1),
+                10
+                
+                
+            );
         
         
         //$deleteFormAjax = $this->createCustomForm(':USER_ID', 'DELETE', 'cleantech_user_delete');
         
-         return $this->render('CleantechDirectorioBundle:Perfil:users.html.twig', array('user' => $datos));  
+         return $this->render('CleantechDirectorioBundle:Perfil:empresas.html.twig', array('empresas' => $datos, 'estado_virutal' => $estado_virtual));  
             
             }
             

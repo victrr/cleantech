@@ -682,3 +682,43 @@ body {
      background: rgba(255, 255, 255, .7);
    
 }
+
+.imagenPerfil {
+height: 55px;
+width: 55px;
+margin: 0 auto 0 auto;
+padding: 5px;
+
+
+}
+.imagenPerfil img { max-width: 99%; }
+
+.imagenLogo {
+height: 150px;
+width: 150px;
+margin: 0 auto 0 auto;
+padding: 5px;
+
+
+}
+.imagenLogo img { max-width: 99%; }
+
+.content-drop{
+    background-color: rgba(0,0,0,.6);
+}
+
+.encabezado{
+    background-color:#2c3742 ;
+}
+
+.ir-arriba {
+	display:none;
+	padding:20px;
+	background:#024959;
+	font-size:20px;
+	color:#fff;
+	cursor:pointer;
+	position: fixed;
+	bottom:20px;
+	right:20px;
+}
